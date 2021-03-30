@@ -7,12 +7,11 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\search\MasterKategoriArtikelSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Master Kategori Artikels';
+$this->title = 'Master Kategori Artikel';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="master-kategori-artikel-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Create Master Kategori Artikel', ['create'], ['class' => 'btn btn-success']) ?>
@@ -26,12 +25,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'slug',
-            'nama',
-            'id_status',
-            'created_at',
-            //'updated_at',
+    //            'id',
+        'slug',
+        'nama',
+        [
+            'label' => 'Status',
+            'value' => function($model) {
+                $findStatus = \backend\models\MasterStatus::findOne($model->id_status);
+                return $findStatus->nama;
+            }
+        ],
+//            'id_status',
+//            'created_at',
+        //'updated_at',
             //'created_by',
             //'updated_by',
             //'active',
