@@ -2,6 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
+use yii\helpers\ArrayHelper;
+use kartik\select2\Select2;
+use backend\models\MasterKategoriArtikel;
+use mihaildev\ckeditor\CKEditor;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Artikel */
@@ -16,25 +22,30 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_kategori_artikel')->textInput() ?>
+    <?=
+    $form->field($model, 'id_kategori_artikel')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(MasterKategoriArtikel::find()->all(), 'id', 'nama'),
+        'options' => ['placeholder' => 'Pilih Kategori'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ])->label('Kategori');
+    ?>
 
-    <?= $form->field($model, 'isi')->textarea(['rows' => 6]) ?>
+    <?=
+    $form->field($model, 'isi')->widget(CKEditor::className(), [
+        'editorOptions' => [
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+    ]]);
+    ?>
 
-    <?= $form->field($model, 'thumbnail')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'file')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'id_status_publish')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'updated_by')->textInput() ?>
-
-    <?= $form->field($model, 'active')->textInput() ?>
+    <?=
+    $form->field($model, 'file')->widget(FileInput::classname(), [
+        'options' => ['accept' => '*'],
+    ]);
+    ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
