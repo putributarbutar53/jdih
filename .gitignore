@@ -35,4 +35,5 @@ phpunit.phar
 /.vagrant
 
 # ignore generated files
-/frontend/web/produk_hukum/
+backend/web/file/produk_hukum/
+backend/web/file/artikel/

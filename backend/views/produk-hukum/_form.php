@@ -69,10 +69,29 @@ use kartik\checkbox\CheckboxX;
         'options' => ['accept' => '*'],
     ]);
     ?>
-    <?=
+    <?php
     $form->field($model, 'id_status_publish')->widget(CheckboxX::classname(), [
-        'pluginOptions' => ['threeState' => false]
+        'pluginOptions' => ['threeState' => false],
+        'value' => 1,
     ])->label('Published');
+    ?>
+    <?php
+    if ($model->isNewRecord) {
+        $value = 0;
+    } else {
+        $value = ($model->id_status_publish == 1) ? 0 : 1;
+    }
+    echo CheckboxX::widget([
+        'name' => 'id_status_publish',
+        'value' => $value,
+        'labelSettings' => [
+        'label' => '<b>Published</b>',
+        'position' => CheckboxX::LABEL_LEFT
+    ],
+    'pluginOptions' => ['threeState' => false],
+    'disabled' => false,
+    'options' => ['id' => 'id_status_publish'],
+]);
     ?>
 
     <div class="form-group">

@@ -86,14 +86,14 @@ class ProdukHukum extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_kategori', 'nomor', 'tahun', 'judul', 'isi', 'file'], 'required'],
+            [['id_kategori', 'nomor', 'tahun', 'judul', 'isi'], 'required'],
                 [['id_kategori', 'id_status_publish', 'created_by', 'updated_by', 'active'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
                 [['isi', 'tahun'], 'string'],
                 [['nomor', 'judul', 'file'], 'string', 'max' => 255],
             [['id_kategori'], 'exist', 'skipOnError' => true, 'targetClass' => MasterKategori::className(), 'targetAttribute' => ['id_kategori' => 'id']],
             [['id_status_publish'], 'exist', 'skipOnError' => true, 'targetClass' => MasterStatusPublish::className(), 'targetAttribute' => ['id_status_publish' => 'id']],
-                [['file'], 'file', 'extensions' => 'pdf,docx,jpeg,png,gif,jpg,doc,xls,xlsx',],
+                [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf,docx,jpeg,png,gif,jpg,doc,xls,xlsx',],
                 [['file'], 'file', 'maxSize' => 100000 * 1024, 'tooBig' => 'Limit is 100MB'],
         ];
     }

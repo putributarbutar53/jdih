@@ -8,6 +8,8 @@ use backend\models\search\ArtikelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\helpers\FileHelper;
 
 /**
  * ArtikelController implements the CRUD actions for Artikel model.
@@ -66,8 +68,44 @@ class ArtikelController extends Controller
     {
         $model = new Artikel();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->slug = (string) rand();
+            if ($_POST['id_status_publish'] == 0 || $_POST['id_status_publish'] == '') {
+                $model->id_status_publish = 1;
+            } else {
+                $model->id_status_publish = 2;
+            }
+            $thumbnail = UploadedFile::getInstance($model, 'thumbnail');
+            if (!empty($thumbnail)) {
+                $path = 'file/artikel/thumbnail/';
+                FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+                $pathFile = '';
+                if (isset($thumbnail)) {
+                    $rand = rand();
+                    $thumbnail->saveAs($path . $rand . '_thumbnail' . '.' . $thumbnail->extension);
+                    $pathFile = $path . $rand . '_thumbnail' . '.' . $thumbnail->extension;
+                    $model->thumbnail = $pathFile;
+                }
+            }
+            $file = UploadedFile::getInstance($model, 'file');
+            if (!empty($file)) {
+                $path = 'file/artikel/file/';
+                FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+                $pathFile = '';
+                if (isset($file)) {
+                    $rand = rand();
+                    $file->saveAs($path . $rand . '_artikel' . '.' . $file->extension);
+                    $pathFile = $path . $rand . '_artikel' . '.' . $file->extension;
+                    $model->file = $pathFile;
+                }
+            }
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Artikel Berhasil Di Simpan");
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Artikel Gagal Di Simpan");
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('create', [
@@ -85,9 +123,49 @@ class ArtikelController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $modelx = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->slug = (string) rand();
+            if ($_POST['id_status_publish'] == 0 || $_POST['id_status_publish'] == '') {
+                $model->id_status_publish = 1;
+            } else {
+                $model->id_status_publish = 2;
+            }
+            $thumbnail = UploadedFile::getInstance($model, 'thumbnail');
+            if (!empty($thumbnail)) {
+                $path = 'file/artikel/thumbnail/';
+                FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+                $pathFile = '';
+                if (isset($thumbnail)) {
+                    $rand = rand();
+                    $thumbnail->saveAs($path . $rand . '_thumbnail' . '.' . $thumbnail->extension);
+                    $pathFile = $path . $rand . '_thumbnail' . '.' . $thumbnail->extension;
+                    $model->thumbnail = $pathFile;
+                }
+            } else {
+                $model->thumbnail = $modelx->thumbnail;
+            }
+            $file = UploadedFile::getInstance($model, 'file');
+            if (!empty($file)) {
+                $path = 'file/artikel/file/';
+                FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+                $pathFile = '';
+                if (isset($file)) {
+                    $rand = rand();
+                    $file->saveAs($path . $rand . '_artikel' . '.' . $file->extension);
+                    $pathFile = $path . $rand . '_artikel' . '.' . $file->extension;
+                    $model->file = $pathFile;
+                }
+            } else {
+                $model->file = $modelx->file;
+            }
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Artikel Berhasil Di Update");
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Artikel Gagal Di Update");
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('update', [

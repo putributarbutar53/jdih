@@ -1,21 +1,22 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
+use backend\models\MasterKategoriArtikel;
+use yii\helpers\ArrayHelper;
+use backend\models\MasterStatusPublish;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ArtikelSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Artikels';
+$this->title = 'Artikel';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="artikel-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Artikel', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tambah Artikel', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -26,13 +27,49 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'judul',
-            'slug',
-            'id_kategori_artikel',
-            'isi:ntext',
-            //'thumbnail',
-            //'file',
+            [
+            'attribute' => 'judul',
+            'headerOptions' => ['style' => 'width:55%'],
+        ],
+        [
+            'attribute' => 'id_kategori_artikel',
+            'label' => 'Kategori',
+            'value' => function($model) {
+                return $model->kategoriArtikel->nama;
+            },
+            'filterType' => GridView::FILTER_SELECT2,
+            'filter' => ArrayHelper::map(MasterKategoriArtikel::find()->orderBy('id')->asArray()->all(), 'id', 'nama'),
+            'filterWidgetOptions' => [
+                'pluginOptions' => ['allowClear' => true],
+            ],
+            'filterInputOptions' => ['placeholder' => 'Kategori'],
+            'headerOptions' => ['style' => 'width:15%'],
+        ],
+            [
+            'label' => 'Author',
+            'format' => 'raw',
+            'value' => function($model) {
+                $modelUser = common\models\User::findOne($model->created_by);
+                return ucfirst($modelUser->username);
+            },
+            'headerOptions' => ['style' => 'width:10%'],
+        ],
+            [
+            'attribute' => 'id_status_publish',
+            'label' => 'Status',
+            'headerOptions' => ['style' => 'width:8%'],
+            'value' => function($model) {
+                return $model->statusPublish->nama;
+            },
+            'filterType' => GridView::FILTER_SELECT2,
+            'filter' => ArrayHelper::map(MasterStatusPublish::find()->orderBy('id')->asArray()->all(), 'id', 'nama'),
+            'filterWidgetOptions' => [
+                'pluginOptions' => ['allowClear' => true],
+            ],
+            'filterInputOptions' => ['placeholder' => 'Status'],
+        ],
+        //'thumbnail',
+        //'file',
             //'id_status_publish',
             //'created_at',
             //'updated_at',

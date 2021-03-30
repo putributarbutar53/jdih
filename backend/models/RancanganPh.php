@@ -86,8 +86,8 @@ class RancanganPh extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_kategori', 'nomor', 'tahun', 'judul', 'isi', 'file', 'id_status_publish'], 'required'],
-            [['id_kategori', 'id_status_publish', 'created_by', 'updated_by', 'active'], 'integer'],
+            [['id_kategori', 'nomor', 'tahun', 'judul', 'isi', 'id_status_publish'], 'required'],
+                [['id_kategori', 'id_status_publish', 'created_by', 'updated_by', 'active'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
                 [['isi'], 'string'],
             [['nomor', 'judul', 'file', 'tahun'], 'string', 'max' => 255],

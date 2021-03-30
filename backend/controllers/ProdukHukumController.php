@@ -70,7 +70,7 @@ class ProdukHukumController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             date_default_timezone_set("Asia/Bangkok");
-            if ($model->id_status_publish = 0 || $model->id_status_publish == '') {
+            if ($_POST['id_status_publish'] == 0 || $_POST['id_status_publish'] == '') {
                 $model->id_status_publish = 1;
             } else {
                 $model->id_status_publish = 2;
@@ -110,24 +110,27 @@ class ProdukHukumController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $modelx = $this->findModel($id);
         if ($model->load(Yii::$app->request->post())) {
             date_default_timezone_set("Asia/Bangkok");
-            if ($model->id_status_publish = 0 || $model->id_status_publish == '') {
+            if ($_POST['id_status_publish'] == 0 || $_POST['id_status_publish'] == '') {
                 $model->id_status_publish = 1;
             } else {
                 $model->id_status_publish = 2;
             }
             $file = UploadedFile::getInstance($model, 'file');
-
-            $path = 'file/produk_hukum/';
-            FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
-            $pathFile = '';
-            if (isset($file)) {
-                $rand = rand();
-                $file->saveAs($path . $rand . '_produk_hukum' . '.' . $file->extension);
-                $pathFile = $path . $rand . '_produk_hukum' . '.' . $file->extension;
-                $model->file = $pathFile;
+            if (!empty($file)) {
+             $path = 'file/produk_hukum/';
+                FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+                $pathFile = '';
+                if (isset($file)) {
+                    $rand = rand();
+                    $file->saveAs($path . $rand . '_produk_hukum' . '.' . $file->extension);
+                    $pathFile = $path . $rand . '_produk_hukum' . '.' . $file->extension;
+                    $model->file = $pathFile;
+                }
+            } else {
+                $model->file = $modelx->file;
             }
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', "Produk Hukum Berhasil DiUpdate");

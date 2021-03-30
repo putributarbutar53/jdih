@@ -19,7 +19,10 @@ use frontend\models\ContactForm;
  * Site controller
  */
 class SiteController extends Controller
-{
+ {
+
+    public $layout = 'main-frontend';
+
     /**
      * {@inheritdoc}
      */
