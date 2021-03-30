@@ -73,6 +73,7 @@ class ProdukHukumSearch extends ProdukHukum
             ->andFilterWhere(['like', 'judul', $this->judul])
             ->andFilterWhere(['like', 'isi', $this->isi])
             ->andFilterWhere(['like', 'file', $this->file]);
+        //                ->andFilterWhere(['like', 'tahun', $this->tahun]);
 
         return $dataProvider;
     }

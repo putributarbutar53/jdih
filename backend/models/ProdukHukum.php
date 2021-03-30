@@ -3,6 +3,9 @@
 namespace backend\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "{{%produk_hukum}}".
@@ -25,7 +28,42 @@ use Yii;
  * @property MasterStatusPublish $statusPublish
  */
 class ProdukHukum extends \yii\db\ActiveRecord
-{
+ {
+
+    public function behaviors() {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => 'updated_at',
+                ],
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+
+    public function beforeSave($insert) {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+        if (!Yii::$app->user->isGuest) {
+            $uid = Yii::$app->user->identity->id;
+        } else {
+            throw new \Exception("Who Are You?");
+        }
+
+
+        if (ActiveRecord::EVENT_BEFORE_INSERT) {
+            $this->created_by = $uid;
+            $this->updated_by = $uid;
+        } else if (ActiveRecord::EVENT_BEFORE_UPDATE) {
+            $this->updated_by = $uid;
+        }
+
+        return true;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -48,13 +86,15 @@ class ProdukHukum extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_kategori', 'nomor', 'tahun', 'judul', 'isi', 'file', 'id_status_publish'], 'required'],
-            [['id_kategori', 'id_status_publish', 'created_by', 'updated_by', 'active'], 'integer'],
-            [['tahun', 'created_at', 'updated_at'], 'safe'],
-            [['isi'], 'string'],
-            [['nomor', 'judul', 'file'], 'string', 'max' => 255],
+            [['id_kategori', 'nomor', 'tahun', 'judul', 'isi', 'file'], 'required'],
+                [['id_kategori', 'id_status_publish', 'created_by', 'updated_by', 'active'], 'integer'],
+            [['created_at', 'updated_at'], 'safe'],
+                [['isi', 'tahun'], 'string'],
+                [['nomor', 'judul', 'file'], 'string', 'max' => 255],
             [['id_kategori'], 'exist', 'skipOnError' => true, 'targetClass' => MasterKategori::className(), 'targetAttribute' => ['id_kategori' => 'id']],
             [['id_status_publish'], 'exist', 'skipOnError' => true, 'targetClass' => MasterStatusPublish::className(), 'targetAttribute' => ['id_status_publish' => 'id']],
+                [['file'], 'file', 'extensions' => 'pdf,docx,jpeg,png,gif,jpg,doc,xls,xlsx',],
+                [['file'], 'file', 'maxSize' => 100000 * 1024, 'tooBig' => 'Limit is 100MB'],
         ];
     }
 

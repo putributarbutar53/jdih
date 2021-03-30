@@ -8,6 +8,8 @@ use backend\models\search\ProdukHukumSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\helpers\FileHelper;
 
 /**
  * ProdukHukumController implements the CRUD actions for ProdukHukum model.
@@ -66,8 +68,31 @@ class ProdukHukumController extends Controller
     {
         $model = new ProdukHukum();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            date_default_timezone_set("Asia/Bangkok");
+            if ($model->id_status_publish = 0 || $model->id_status_publish == '') {
+                $model->id_status_publish = 1;
+            } else {
+                $model->id_status_publish = 2;
+            }
+            $file = UploadedFile::getInstance($model, 'file');
+
+            $path = 'file/produk_hukum/';
+            FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+            $pathFile = '';
+            if (isset($file)) {
+                $rand = rand();
+                $file->saveAs($path . $rand . '_produk_hukum' . '.' . $file->extension);
+                $pathFile = $path . $rand . '_produk_hukum' . '.' . $file->extension;
+                $model->file = $pathFile;
+            }
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Produk Hukum Berhasil Disimpan");
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Produk Hukum Gagal Disimpan");
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('create', [
@@ -86,8 +111,31 @@ class ProdukHukumController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            date_default_timezone_set("Asia/Bangkok");
+            if ($model->id_status_publish = 0 || $model->id_status_publish == '') {
+                $model->id_status_publish = 1;
+            } else {
+                $model->id_status_publish = 2;
+            }
+            $file = UploadedFile::getInstance($model, 'file');
+
+            $path = 'file/produk_hukum/';
+            FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+            $pathFile = '';
+            if (isset($file)) {
+                $rand = rand();
+                $file->saveAs($path . $rand . '_produk_hukum' . '.' . $file->extension);
+                $pathFile = $path . $rand . '_produk_hukum' . '.' . $file->extension;
+                $model->file = $pathFile;
+            }
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Produk Hukum Berhasil DiUpdate");
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Produk Hukum Gagal DiUpdate");
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('update', [
