@@ -93,6 +93,8 @@ class RancanganPh extends \yii\db\ActiveRecord
             [['nomor', 'judul', 'file', 'tahun'], 'string', 'max' => 255],
                 [['id_kategori'], 'exist', 'skipOnError' => true, 'targetClass' => MasterKategori::className(), 'targetAttribute' => ['id_kategori' => 'id']],
             [['id_status_publish'], 'exist', 'skipOnError' => true, 'targetClass' => MasterStatusPublish::className(), 'targetAttribute' => ['id_status_publish' => 'id']],
+            [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf,docx,jpeg,png,gif,jpg,doc,xls,xlsx',],
+            [['file'], 'file', 'maxSize' => 100000 * 1024, 'tooBig' => 'Limit is 100MB'],
         ];
     }
 
