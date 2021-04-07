@@ -42,7 +42,7 @@ use yii\helpers\Url;
     <body class="layout-v3">
 
         <!-- Start: Header Section -->
-        <header id="header" class="navbar-wrapper" style="background-color: #3e3e3e">
+        <header id="header" class="navbar-wrapper" style="background-color: #3e3e3e; top:0px">
             <div class="container-fluid">
                 <div class="row">
                     <nav class="navbar navbar-default">
@@ -91,7 +91,7 @@ use yii\helpers\Url;
                                             $findMasterKategoriArtikel = MasterKategoriArtikel::find()->all();
                                             foreach ($findMasterKategoriArtikel as $fmka) {
                                                 echo "<li><a href='libraria/news-events-list-view.html'>$fmka->nama</a></li>";
-        }
+                                            }
                                             ?>
                                         </ul>
                                     </li>                                                                        

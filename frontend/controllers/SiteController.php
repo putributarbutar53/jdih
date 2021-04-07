@@ -21,7 +21,7 @@ use frontend\models\ContactForm;
 class SiteController extends Controller
  {
 
-    public $layout = 'main-frontend';
+    public $layout = 'main-frontend_2';
 
     /**
      * {@inheritdoc}
