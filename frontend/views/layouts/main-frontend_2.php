@@ -63,22 +63,22 @@ $findMasterKategori = MasterKategori::find()->all();
                     <div class="row align-items-center">
                         <div class="col-xl-7 col-lg-6">
                             <div class="top-cta text-right">
-                                <span>Open Hours of City Government <b>Mon - Fri: 8.00 am - 6.00 pm</b></span>
+                                <span>Jam Buka JDIH Kabupaten Toba<b>&nbsp; Senin - Jumat: 8.00 AM - 14.00 PM</b></span>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-6">
                             <div class="top-right-nav d-flex justify-content-end">
                                 <div class="header-lang pr-25">
-                                    <div class="header-lang__icon">
-                                        <span>English <i class="far fa-chevron-down"></i></span>
-                                    </div>
-                                    <ul class="header-lang__list">
-                                        <li><a href="govtpress/#">USA</a></li>
+                                    <!--                                    <div class="header-lang__icon">
+                                                                            <span>English <i class="far fa-chevron-down"></i></span>
+                                                                        </div>-->
+<!--                                    <ul class="header-lang__list">
+                                                                            <li><a href="govtpress/#">USA</a></li>
                                         <li><a href="govtpress/#">CHINA</a></li>
                                         <li><a href="govtpress/#">SPANISH</a></li>
                                         <li><a href="govtpress/#">GERMAN</a></li>
                                         <li><a href="govtpress/#">ARABIC</a></li>
-                                    </ul>
+                                                                        </ul>-->
                                 </div>
                                 <div class="top__social">
                                     <a href="govtpress/#"><i class="fab fa-facebook-f"></i></a>
@@ -97,8 +97,8 @@ $findMasterKategori = MasterKategori::find()->all();
                     <div class="row no-gutters align-items-center">
                         <div class="col-xl-2 col-lg-3 col-md-6 col-6">
                             <div class="logo">
-                                <a class="logo-img" href="index-2.html"><img src="logo/logo.png"
-                                                                             alt=""></a>
+                                <a class="logo-img" href="<?= Url::toRoute(['site/index']) ?>"><img src="logo/logo_jdihn.png"
+                                                                                                    alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-7 col-lg-8 d-none d-lg-block">
@@ -106,6 +106,14 @@ $findMasterKategori = MasterKategori::find()->all();
                                 <nav>
                                     <ul>
                                         <li><a href="<?= Url::toRoute(['site/index']) ?>">Beranda</a></li>
+                                        <li><a href="#">Profil <i class="far fa-chevron-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="govtpress/team-details.html">Visi & Misi</a></li>
+                                                <li><a href="govtpress/team-details.html">Sejarah JDIH</a></li>
+                                                <li><a href="govtpress/team.html">Struktur Organisasi</a></li>
+                                                <li><a href="govtpress/contact.html">Hubungi Kami</a></li>
+                                            </ul>
+                                        </li>
                                         <li><a href="#">Produk Hukum <i class="far fa-chevron-down"></i></a>
                                             <ul class="submenu">
                                                 <?php
@@ -119,8 +127,8 @@ $findMasterKategori = MasterKategori::find()->all();
                                             <ul class="submenu">
                                                 <?php
                                                 foreach ($findMasterKategori as $fmk) {
-                                                    echo "<li><a href='" . Url::toRoute(['index']) . "'>$fmk->nama</a></li>";
-                                                }
+                                                    echo "<li><a href='" . Url::toRoute(['rancangan-ph/view', 'id' => $fmk->id, 'namaKategori' => $fmk->nama]) . "'>$fmk->nama</a></li>";
+}
                                                 ?>
                                             </ul>
                                         </li>
@@ -129,20 +137,11 @@ $findMasterKategori = MasterKategori::find()->all();
                                                 <?php
                                                 $findMasterKategoriArtikel = MasterKategoriArtikel::find()->all();
                                                 foreach ($findMasterKategoriArtikel as $fmka) {
-                                                    echo "<li><a href='" . Url::toRoute(['index']) . "'>$fmka->nama</a></li>";
-                                                }
+                                                    echo "<li><a href='" . Url::toRoute(['artikel/index', 'id' => $fmka->id, 'namaKategori' => $fmka->nama]) . "'>$fmka->nama</a></li>";
+}
                                                 ?>
                                             </ul>
-                                        </li>
-                                        <li><a href="#">Pages <i class="far fa-chevron-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="govtpress/team.html">Our Team</a></li>
-                                                <li><a href="govtpress/team-details.html">Team Details</a></li>
-                                                <li><a href="govtpress/faq.html">Faq</a></li>
-                                                <li><a href="govtpress/history.html">History</a></li>
-                                                <li><a href="govtpress/contact.html">Contact</a></li>
-                                            </ul>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                 </nav>
                             </div>
@@ -155,7 +154,7 @@ $findMasterKategori = MasterKategori::find()->all();
                             </div>
                             <div class="main-header-right-one d-none d-xl-block">
                                 <div class="donate">
-                                    <a href="govtpress/contact.html" class="theme_btn theme_btn2">SignIn/Register <i class="fal fa-long-arrow-right"></i></a>
+                                    <a href="govtpress/contact.html" class="theme_btn theme_btn2">Masuk <i class="fal fa-long-arrow-right"></i></a>
                                 </div>
 
                             </div>
@@ -205,21 +204,28 @@ $findMasterKategori = MasterKategori::find()->all();
             <nav class="side-mobile-menu">
                 <ul id="mobile-menu-active">
                     <li><a href="<?= Url::toRoute(['index']) ?>">Beranda</a></li>
+                    <li><a href="#">Profil <i class="far fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="govtpress/team-details.html">Visi & Misi</a></li>
+                            <li><a href="govtpress/team-details.html">Sejarah JDIH</a></li>
+                            <li><a href="govtpress/team.html">Struktur Organisasi</a></li>
+                            <li><a href="govtpress/contact.html">Hubungi Kami</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#">Produk Hukum <i class="far fa-chevron-down"></i></a>
                         <ul class="submenu">
                             <?php
-                            $findMasterKategori = MasterKategori::find()->all();
                             foreach ($findMasterKategori as $fmk) {
-                                echo "<li><a href='" . Url::toRoute(['index']) . "'>$fmk->nama</a></li>";
+                                echo "<li><a href='" . Url::toRoute(['produk-hukum/view', 'id' => $fmk->id, 'namaKategori' => $fmk->nama]) . "'>$fmk->nama</a></li>";
                             }
-                            ?>
+                            ?> 
                         </ul>
                     </li>
                     <li><a href="#">Rancangan Produk Hukum <i class="far fa-chevron-down"></i></a>
                         <ul class="submenu">
                             <?php
                             foreach ($findMasterKategori as $fmk) {
-                                echo "<li><a href='" . Url::toRoute(['index']) . "'>$fmk->nama</a></li>";
+                                echo "<li><a href='" . Url::toRoute(['rancangan-ph/view', 'id' => $fmk->id, 'namaKategori' => $fmk->nama]) . "'>$fmk->nama</a></li>";
                             }
                             ?>
                         </ul>
@@ -229,20 +235,11 @@ $findMasterKategori = MasterKategori::find()->all();
                             <?php
                             $findMasterKategoriArtikel = MasterKategoriArtikel::find()->all();
                             foreach ($findMasterKategoriArtikel as $fmka) {
-                                echo "<li><a href='" . Url::toRoute(['index']) . "'>$fmka->nama</a></li>";
+                                echo "<li><a href='" . Url::toRoute(['artikel/index', 'id' => $fmka->id, 'namaKategori' => $fmka->nama]) . "'>$fmka->nama</a></li>";
                             }
                             ?>
                         </ul>
-                    </li>
-                    <li><a href="#">Pages <i class="far fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="govtpress/team.html">Our Team</a></li>
-                            <li><a href="govtpress/team-details.html">Team Details</a></li>
-                            <li><a href="govtpress/faq.html">Faq</a></li>
-                            <li><a href="govtpress/history.html">History</a></li>
-                            <li><a href="govtpress/contact.html">Contact</a></li>
-                        </ul>
-                    </li>
+                    </li>                    
                 </ul>
             </nav>
             <!-- side-mobile-menu end -->
@@ -261,13 +258,11 @@ $findMasterKategori = MasterKategori::find()->all();
                         <div class="footer__widget mb-25 pr-40">
                             <div class="footer-box d-sm-flex justify-content-between">
                                 <div class="logo-area">
-                                    <a href="govtpress/index-2.html" class="footer-logo mb-30"><img
-                                            src="govtpress/assets/img/logo/footer-logo1.png" alt=""></a>
+                                    <a href="<?= Url::toRoute(['site/index']) ?>" class="footer-logo mb-30"><img
+                                            src="logo/logo_jdihn.png" alt="" style="max-height: 60px;max-width: 187px;"></a>
                                 </div>
                             </div>
-                            <p class="mb-35">GovtPress is one of the best government sites on the market. Discover our
-                                multiple awards and recognitions. You are always welcome in our city! Please visit us and
-                                enjoy! Welcome to Your Opportunity</p>
+                            <p class="mb-35">JDIH (Jaringan Dokumentasi dan Informasi Hukum) Kabupaten Toba merupakan sistem pendokumentasian Produk Hukum yang ada pada lingkungan Pemerintah Kabupaten Toba</p>
                             <div class="foter__social mt-10">
                                 <a href="govtpress/#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="govtpress/#"><i class="fab fa-twitter"></i></a>
@@ -278,62 +273,42 @@ $findMasterKategori = MasterKategori::find()->all();
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
                         <div class="footer__widget mb-30">
-                            <h6 class="fot-title mb-30">More Pages</h6>
+                            <h6 class="fot-title mb-30">Peraturan Terbaru</h6>
                             <ul class="fot-list">
-                                <li><a href="govtpress/#">Online Service</a></li>
-                                <li><a href="govtpress/#">Residents</a></li>
-                                <li><a href="govtpress/#">Business</a></li>
-                                <li><a href="govtpress/#">Visiting</a></li>
-                                <li><a href="govtpress/#">Employment</a></li>
-                                <li><a href="govtpress/#">Education</a></li>
+                                <?php
+                                $findProdukHukum = backend\models\ProdukHukum::find()
+                                        ->where(['id_status_publish' => 2, 'active' => 10])
+                                        ->orderBy(['created_at' => SORT_DESC])
+                                        ->limit(5)
+                                        ->all();
+                                foreach ($findProdukHukum as $fPH) {
+                                    echo "<li><a href='" . Url::toRoute(['produk-hukum/detail-produk-hukum', 'id' => $fPH->id]) . "'>" . $fPH->kategori->nama . " Nomor " . $fPH->nomor . " Tahun " . $fPH->tahun . "</a></li>";
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
                         <div class="footer__widget mb-30">
-                            <h6 class="fot-title mb-30">Govt. Info</h6>
+                            <h6 class="fot-title mb-30">Jenis Peraturan</h6>
                             <ul class="fot-list">
-                                <li><a href="govtpress/#">Why choose us</a></li>
-                                <li><a href="govtpress/#">Our solutions</a></li>
-                                <li><a href="govtpress/#">Partners</a></li>
-                                <li><a href="govtpress/#">Core values</a></li>
-                                <li><a href="govtpress/#">Our projects</a></li>
+                                <?php
+                                $masterKategori = MasterKategori::find()->all();
+                                foreach ($masterKategori as $mk) {
+                                    echo "<li><a href='" . Url::toRoute(['produk-hukum/view', 'id' => $mk->id, 'namaKategori' => $mk->nama]) . "'>$mk->nama</a></li>";
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 col-md-8">
+                    <div class="col-xl-2 col-lg-3 col-md-4">
                         <div class="footer__widget mb-30">
-                            <h6 class="fot-title mb-30">News Feeds</h6>
-                            <div class="post d-flex align-items-center mb-10">
-                                <div class="post__thumb mr-20">
-                                    <img src="govtpress/assets/img/news/post1.jpg" alt="">
-                                </div>
-                                <div class="post__content">
-                                    <span><i class="fal fa-calendar-alt"></i> 24th November 2020</span>
-                                    <h6 class="fot-title"><a href="govtpress/news-details.html">Lorem ipsum dolor sit amet, co
-                                            nsectetur adipisicing elit</a></h6>
-                                </div>
-                            </div>
-                            <div class="post d-flex align-items-center mb-10">
-                                <div class="post__thumb mr-20">
-                                    <img src="govtpress/assets/img/news/post2.jpg" alt="">
-                                </div>
-                                <div class="post__content">
-                                    <span><i class="fal fa-calendar-alt"></i> 26th November 2020</span>
-                                    <h6 class="fot-title"><a href="govtpress/news-details.html">Inspire Design Decision With Ott Storch When co
-                                            nsectetur</a></h6>
-                                </div>
-                            </div>
-                            <div class="post d-flex align-items-center">
-                                <div class="post__thumb mr-20">
-                                    <img src="govtpress/assets/img/news/post3.jpg" alt="">
-                                </div>
-                                <div class="post__content">
-                                    <span><i class="fal fa-calendar-alt"></i> 28th November 2020</span>
-                                    <h6 class="fot-title"><a href="govtpress/news-details.html">Storch Design Decision With Ott Storch When , co
-                                            nsectetur</a></h6>
-                                </div>
-                            </div>
+                            <h6 class="fot-title mb-30">Hubungi Kami</h6>
+                            <ul class="fot-list">
+                                <li>Kabupaten Toba</li>
+                                <li>+62632-888-111</li>
+                                <li><a href="govtpress/#">jdihkabtoba@tobakab.go.id</a></li>                                
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -344,14 +319,13 @@ $findMasterKategori = MasterKategori::find()->all();
                         <div class="col-xl-5 col-lg-4 col-md-8">
                             <div class="fot-nav">
                                 <ul class="fot-nav-list">
-                                    <li><a href="govtpress/#">Terms & Conditions</a></li>
-                                    <li><a href="govtpress/#">Refund Policy</a></li>
+                                    <li>Developed By Kominfo Toba</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-xl-7 col-lg-8 col-md-4">
                             <div class="copy-right-area-02 text-right">
-                                <span>Copyright By <a href="govtpress/#">BDevs</a> - 2020</span>
+                                <span>Copyright ©2021 Jaringan Dokumentasi dan Informasi Hukum Kabupaten <a href="https://tobakab.go.id" target="_blank" >Toba</a> . All rights reserved</span>
                             </div>
                         </div>
                     </div>

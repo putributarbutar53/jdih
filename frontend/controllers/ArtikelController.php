@@ -13,7 +13,10 @@ use yii\filters\VerbFilter;
  * ArtikelController implements the CRUD actions for Artikel model.
  */
 class ArtikelController extends Controller
-{
+ {
+
+    public $layout = 'main-frontend_2';
+
     /**
      * {@inheritdoc}
      */
@@ -33,14 +36,20 @@ class ArtikelController extends Controller
      * Lists all Artikel models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex($id, $namaKategori) {
         $searchModel = new ArtikelSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);
+        $findArtikel = \backend\models\Artikel::find()
+                ->where(['id_kategori_artikel' => $id])
+                ->andWhere(['id_status_publish' => 2, 'active' => 10])
+                ->orderBy(['created_at' => SORT_DESC])
+                ->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'namaKategori' => $namaKategori,
+            'model' => $findArtikel,
         ]);
     }
 

@@ -59,7 +59,7 @@ class ProdukHukumController extends Controller
                 ->andWhere(['id_status_publish' => 2, 'active' => 10])
                 ->one();
         $searchModel = new \backend\models\search\ProdukHukumSearch();
-        $dataProvider = $searchModel->searchx(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->searchx(Yii::$app->request->queryParams, $id);
         return $this->render('view', [
             'model' => $modelProdukHukum,
                     'searchModel' => $searchModel,

@@ -32,14 +32,25 @@ use yii\helpers\Html;
             echo GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
-                'columns' => [
+    'options' => ['style' => 'width:100%'],
+    'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
-                    'nomor',
-                    'tahun',
-                    'judul:ntext',
-                        [
+                    [
+            'attribute' => 'nomor',
+            'headerOptions' => ['style' => 'width:15%'],
+        ],
+            [
+            'attribute' => 'tahun',
+            'headerOptions' => ['style' => 'width:10%'],
+        ],
+            [
+            'attribute' => 'judul',
+            'headerOptions' => ['style' => 'width:70%'],
+        ],
+            [
                         'class' => 'yii\grid\ActionColumn',
-                        'template' => '{view}',
+            'headerOptions' => ['style' => 'width:5%'],
+            'template' => '{view}',
                         'buttons' => [
                             'view' => function ($url, $model) {
                                 return Html::a('Detail', ['detail-produk-hukum', 'id' => $model->id], ['class' => 'btn btn-success']);

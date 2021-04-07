@@ -78,9 +78,10 @@ class ProdukHukumSearch extends ProdukHukum
         return $dataProvider;
     }
 
-    public function searchx($params) {
+    public function searchx($params, $id) {
         $query = ProdukHukum::find()
-                ->where(['id_status_publish' => 2]);
+                ->where(['id_status_publish' => 2])
+                ->andWhere(['id_kategori' => $id]);
 
 
 

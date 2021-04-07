@@ -13,10 +13,10 @@ $findMasterKategori = MasterKategori::find()->all();
 <!--slider-area start-->
 <div class="slider-area pos-rel">
     <div class="single-slider slider-height pos-rel d-flex align-items-center align-items-lg-end"
-         style="background-image: url(assets/img/slider/slider1.jpg);">
+         style="background-image: url(govtpress/assets/img/slider/slider1.jpg);min-height: 700px">
         <div class="container">
             <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-10 d-flex align-items-center">
+                <div class="col-xl-6 col-lg-6 col-md-10 d-flex align-items-center" style="max-height: 500px;">
                     <div class="slider__content slider-one-content text-left">
                     <!--<span class="sub-title left_line mb-20 pl-55 animated wow fadeInUp"  data-wow-delay=".2s">Discover The City</span>-->
                         <h1 class="main-title mb-25 animated wow fadeInUp"  data-wow-delay=".3s">Jaringan Informasi & Informasi Hukum (JDIH)</h1>
@@ -37,9 +37,9 @@ $findMasterKategori = MasterKategori::find()->all();
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 d-none d-lg-block">
+                <div class="col-xl-6 col-lg-6 d-none d-lg-block" style="max-height: 500px">
                     <div class="slider-hero-img">
-                        <img class="img-fluid hero-right" src="govtpress/assets/img/slider/hero-img1.png" alt="">
+                        <img class="img-fluid hero-right" src="logo/foto.png" alt="">
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@ $findMasterKategori = MasterKategori::find()->all();
                             </div>
                             <div class="col-xl-3 col-lg-4 col-md-4 col-sm-4">
                                 <div class="book-btn text-right">
-                                    <a href="' . Url::toRoute(['index']) . '" class="theme_btn white_btn">Lihat Detail <i
+                                    <a href="' . Url::toRoute(['produk-hukum/detail-produk-hukum', 'id' => $fph->id]) . '" class="theme_btn white_btn">Lihat Detail <i
                                             class="far fa-long-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@ $findMasterKategori = MasterKategori::find()->all();
                                         </div>
                                         <div class="events__content">
                                             <span class="tag mb-15">Conference</span>
-                                            <h5 class="semi-title mb-15"><a href="#">' . $fAA->judul . '</a></h5>
+                                            <h5 class="semi-title mb-15"><a href="' . Url::toRoute(['artikel/view', 'id' => $fAA->id]) . '">' . $fAA->judul . '</a></h5>
                                             <div class="events__content--meta">
                                                 <span><i class="fal fa-bookmark"></i> ' . $fAA->kategoriArtikel->nama . '</span>
                                             </div>
@@ -263,7 +263,7 @@ $findMasterKategori = MasterKategori::find()->all();
                                         </div>
                                         <div class="events__content">
                                             <span class="tag mb-15">Conference</span>
-                                            <h5 class="semi-title mb-15"><a href="#">' . $fB->judul . '</a></h5>
+                                            <h5 class="semi-title mb-15"><a href="' . Url::toRoute(['artikel/view', 'id' => $fAA->id]) . '">' . $fB->judul . '</a></h5>
                                             <div class="events__content--meta">
                                                 <span><i class="fal fa-bookmark"></i> ' . $fB->kategoriArtikel->nama . '</span>
                                             </div>
@@ -288,7 +288,7 @@ $findMasterKategori = MasterKategori::find()->all();
                                         </div>
                                         <div class="events__content">
                                             <span class="tag mb-15">Conference</span>
-                                            <h5 class="semi-title mb-15"><a href="#">' . $fA->judul . '</a></h5>
+                                            <h5 class="semi-title mb-15"><a href="' . Url::toRoute(['artikel/view', 'id' => $fAA->id]) . '">' . $fA->judul . '</a></h5>
                                             <div class="events__content--meta">
                                                 <span><i class="fal fa-bookmark"></i> ' . $fA->kategoriArtikel->nama . '</span>
                                             </div>

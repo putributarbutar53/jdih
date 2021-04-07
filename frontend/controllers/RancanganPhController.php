@@ -13,7 +13,10 @@ use yii\filters\VerbFilter;
  * RancanganPhController implements the CRUD actions for RancanganPh model.
  */
 class RancanganPhController extends Controller
-{
+ {
+
+    public $layout = 'main-frontend_2';
+
     /**
      * {@inheritdoc}
      */
@@ -50,10 +53,31 @@ class RancanganPhController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
-    {
+    public function actionViewBak($id) {
         return $this->render('view', [
             'model' => $this->findModel($id),
+        ]);
+    }
+
+    public function actionView($id, $namaKategori) {
+        $modelRancanganPh = \backend\models\RancanganPh::find()
+                ->where(['id_kategori' => $id])
+                ->andWhere(['id_status_publish' => 2, 'active' => 10])
+                ->one();
+        $searchModel = new \backend\models\search\RancanganPhSearch();
+        $dataProvider = $searchModel->searchx(Yii::$app->request->queryParams, $id);
+        return $this->render('view', [
+                    'model' => $modelRancanganPh,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
+                    'namaKategori' => $namaKategori,
+        ]);
+    }
+
+    public function actionDetailProdukHukum($id) {
+        $modelProdukHukum = \backend\models\ProdukHukum::findOne($id);
+        return $this->render('view-detail', [
+                    'model' => $modelProdukHukum,
         ]);
     }
 
