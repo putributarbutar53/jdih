@@ -8,6 +8,8 @@ use backend\models\search\MasterStrukturSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\helpers\FileHelper;
 
 /**
  * MasterStrukturController implements the CRUD actions for MasterStruktur model.
@@ -66,8 +68,26 @@ class MasterStrukturController extends Controller
     {
         $model = new MasterStruktur();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $foto = UploadedFile::getInstance($model, 'foto');
+            if (!empty($foto)) {
+                $path = 'foto/';
+                FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+                $pathFile = '';
+                if (isset($foto)) {
+                    $rand = rand();
+                    $foto->saveAs($path . $rand . '_foto' . '.' . $foto->extension);
+                    $pathFile = $path . $rand . '_foto' . '.' . $foto->extension;
+                    $model->foto = $pathFile;
+                }
+            }
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Struktur Berhasil Di Simpan");
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Struktur Gagal Di Simpan");
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('create', [
@@ -85,9 +105,30 @@ class MasterStrukturController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $modelx = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $foto = UploadedFile::getInstance($model, 'foto');
+            if (!empty($foto)) {
+                $path = 'foto/';
+                FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+                $pathFile = '';
+                if (isset($foto)) {
+                    $rand = rand();
+                    $foto->saveAs($path . $rand . '_foto' . '.' . $foto->extension);
+                    $pathFile = $path . $rand . '_foto' . '.' . $foto->extension;
+                    $model->foto = $pathFile;
+                }
+            } else {
+                $model->foto = $modelx->foto;
+            }
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "Struktur Berhasil Di Update");
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "Struktur Gagal Di Update");
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('update', [

@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use backend\models\MasterJabatan;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\MasterStruktur */
@@ -28,6 +29,11 @@ use backend\models\MasterJabatan;
         ],
     ])->label('Kategori');
     ?>
+<?=
+    $form->field($model, 'foto')->widget(FileInput::classname(), [
+        'options' => ['accept' => '*'],
+]);
+?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
