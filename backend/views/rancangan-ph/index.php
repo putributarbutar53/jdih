@@ -11,15 +11,15 @@ use backend\models\MasterStatusPublish;
 /* @var $searchModel backend\models\search\RancanganPhSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Rancangan Phs';
+$this->title = 'Rancangan Produk Hukum';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rancangan-ph-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Rancangan Ph', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tambah Rancangan Produk Hukum', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

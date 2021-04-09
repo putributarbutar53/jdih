@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="master-profil-index">
 
     <p>
-        <?= Html::a('Create Master Profil', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tambah Master Profil', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

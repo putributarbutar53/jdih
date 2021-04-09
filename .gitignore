@@ -37,3 +37,4 @@ phpunit.phar
 # ignore generated files
 backend/web/file/produk_hukum/
 backend/web/file/artikel/
+backend/web/file/rancangan_produk_hukum/

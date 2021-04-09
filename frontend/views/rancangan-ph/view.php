@@ -11,7 +11,7 @@ use yii\helpers\Html;
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
                 <div class="page-title text-center">
-                    <h1><?= $namaKategori ?></h1>
+                    <h1>Rancangan <?= $namaKategori ?></h1>
                     <div class="breadcrumb">
                         <ul class="breadcrumb-list">
                             <!--                            <li><a href="index-2.html">Home</a></li>
@@ -53,8 +53,8 @@ use yii\helpers\Html;
             'template' => '{view}',
                         'buttons' => [
                             'view' => function ($url, $model) {
-                                return Html::a('Detail', ['detail-produk-hukum', 'id' => $model->id], ['class' => 'btn btn-success']);
-                            },
+                                return Html::a('Detail', ['detail-rancangan-ph', 'id' => $model->id], ['class' => 'btn btn-success']);
+                },
                         ],
                     ],
                 ],
