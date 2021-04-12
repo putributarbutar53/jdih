@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ProdukHukum */
 
-$this->title = 'Update Produk Hukum: ' . $model->id;
+$this->title = 'Ubah Produk Hukum: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Produk Hukums', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

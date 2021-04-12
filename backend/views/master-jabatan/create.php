@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\MasterJabatan */
 
-$this->title = 'Tambah Master Jabatan';
+$this->title = 'Buat Master Jabatan';
 $this->params['breadcrumbs'][] = ['label' => 'Master Jabatans', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

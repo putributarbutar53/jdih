@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\MasterKategoriArtikel */
 
-$this->title = $model->id;
+$this->title = 'Detail Kategori Artikel';
 $this->params['breadcrumbs'][] = ['label' => 'Master Kategori Artikels', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);

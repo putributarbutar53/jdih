@@ -1,20 +1,17 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
-use backend\models\MasterJabatan;
+use kartik\detail\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\MasterStruktur */
 
-$this->title = $model->id;
+$this->title = 'Detail Master Struktur';
 $this->params['breadcrumbs'][] = ['label' => 'Master Strukturs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="master-struktur-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -26,27 +23,48 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'nip',
-            'nama',
-            [
+    <div style="overflow-x:auto;">
+        <table width="100%">
+        <tr>
+            <td valign="top">
+                <?php
+                echo DetailView::widget([
+                    'model' => $model,
+                    'condensed' => true,
+                    'hover' => true,
+                    'mode' => DetailView::MODE_VIEW,
+                    'panel' => [
+                        'type' => DetailView::TYPE_INFO,
+                    ],
+                    'buttons1' => '',
+                    'hAlign' => 'left',
+                    'vAlign' => 'top',
+                    'attributes' => [
+                        [
+                            'attribute' => 'nip',
+                            'label' => 'NIP',
+                            'value' => $model->nip,
+                        ],
+                        [
+                            'attribute' => 'nama',
+                        ],
+                        [
+            'attribute' => 'id_jabatan',
             'label' => 'Jabatan',
-            'value' => function($model) {
-                $findJabatan = MasterJabatan::findOne($model->id_jabatan);
-                return $findJabatan->nama;
-            }
+            'value' => $model->jabatan->nama,
         ],
-            'foto'
-//            'created_at',
-//            'updated_at',
-//            'created_by',
-//            'updated_by',
-//            'active',
-    ],
-    ]) ?>
+        [
+                            'attribute' => 'foto',
+                            'label' => 'Foto',
+                            'format' => 'raw',
+                            'value' => Html::img($model->foto, ['width' => 400])
+                        ],
+                    ]
+                ])
+                ?>
+            </td>
+        </tr>
+    </table>
+    </div>
 
 </div>

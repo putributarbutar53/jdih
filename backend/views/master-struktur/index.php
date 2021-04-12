@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 return $findJabatan->nama;
             }
         ],
-        'foto',
 //        'id_jabatan',
 //            'created_at',
         //'updated_at',

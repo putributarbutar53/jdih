@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\MasterProfil */
 
-$this->title = 'Tambah Master Profil';
+$this->title = 'Buat Master Profil';
 $this->params['breadcrumbs'][] = ['label' => 'Master Profils', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
