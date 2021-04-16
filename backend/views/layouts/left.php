@@ -58,8 +58,18 @@
                             ['label' => 'Kategori', 'icon' => 'dashboard', 'url' => ['master-kategori-artikel/index'],],
                     ],
                 ],
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    [
+                    'label' => 'Profil',
+                    'icon' => 'share',
+                    'url' => '#',
+                    'items' => [
+                        ['label' => 'Profil', 'icon' => 'file-code-o', 'url' => ['master-profil/index'],],
+                        ['label' => 'Struktur', 'icon' => 'dashboard', 'url' => ['master-struktur/index'],],
+                        ['label' => 'Jabatan', 'icon' => 'dashboard', 'url' => ['master-jabatan/index'],],
+                    ],
+                ],
+                ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
