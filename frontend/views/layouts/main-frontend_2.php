@@ -19,7 +19,7 @@ $findMasterKategori = MasterKategori::find()->all();
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>GovtPress - Municipal and Government HTML5 Template</title>
+        <title>JDIH Kabupaten Toba</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -154,7 +154,7 @@ $findMasterKategori = MasterKategori::find()->all();
                             </div>
                             <div class="main-header-right-one d-none d-xl-block">
                                 <div class="donate">
-                                    <a href="govtpress/contact.html" class="theme_btn theme_btn2">Masuk <i class="fal fa-long-arrow-right"></i></a>
+                                    <a href="#" class="theme_btn theme_btn2">Masuk <i class="fal fa-long-arrow-right"></i></a>
                                 </div>
 
                             </div>
