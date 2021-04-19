@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # yii console commands
 /yii
 /yii_test
@@ -37,4 +38,45 @@ phpunit.phar
 # ignore generated files
 backend/web/file/produk_hukum/
 backend/web/file/artikel/
+=======
+# yii console commands
+/yii
+/yii_test
+/yii_test.bat
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+# vagrant runtime
+/.vagrant
+
+# ignore generated files
+backend/web/file/produk_hukum/
+backend/web/file/artikel/
+>>>>>>> 722fdf40b5c3e7a427151815dc100b951b318dba
 backend/web/file/rancangan_produk_hukum/
