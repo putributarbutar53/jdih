@@ -63,7 +63,7 @@ $findMasterKategori = MasterKategori::find()->all();
                     <div class="row align-items-center">
                         <div class="col-xl-7 col-lg-6">
                             <div class="top-cta text-right">
-                                <span>Jam Buka JDIH Kabupaten Toba<b>&nbsp; Senin - Jumat: 8.00 AM - 14.00 PM</b></span>
+                                <span>Jam Buka JDIH Kabupaten Toba<b>&nbsp; Senin - Jumat: 8.00 AM - 16.00 PM</b></span>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-6">
@@ -111,7 +111,7 @@ $findMasterKategori = MasterKategori::find()->all();
                                                 <li><a href="<?= Url::toRoute(['master-profil/view-vm']) ?>">Visi & Misi</a></li>
                                                 <li><a href="<?= Url::toRoute(['master-profil/view-s']) ?>">Sejarah JDIH</a></li>
                                                 <li><a href="<?= Url::toRoute(['master-struktur/view-so']) ?>">Struktur Organisasi</a></li>
-                                                <li><a href="govtpress/contact.html">Hubungi Kami</a></li>
+                                                <li><a href="<?= Url::toRoute(['master-profil/view-con']) ?>">Hubungi Kami</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Produk Hukum <i class="far fa-chevron-down"></i></a>
@@ -209,7 +209,7 @@ $findMasterKategori = MasterKategori::find()->all();
                             <li><a href="<?= Url::toRoute(['master-profil/view-vm']) ?>">Visi & Misi</a></li>
                             <li><a href="<?= Url::toRoute(['master-profil/view-s']) ?>">Sejarah JDIH</a></li>
                             <li><a href="<?= Url::toRoute(['master-struktur/view-so']) ?>">Struktur Organisasi</a></li>
-                            <li><a href="govtpress/contact.html">Hubungi Kami</a></li>
+                            <li><a href="<?= Url::toRoute(['master-profil/view-con']) ?>">Hubungi Kami</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Produk Hukum <i class="far fa-chevron-down"></i></a>

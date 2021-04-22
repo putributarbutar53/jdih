@@ -78,6 +78,10 @@ class MasterProfilController extends Controller
         ]);
     }
 
+    public function actionViewCon() {
+        return $this->render('contact');
+    }
+
     /**
      * Creates a new MasterProfil model.
      * If creation is successful, the browser will be redirected to the 'view' page.

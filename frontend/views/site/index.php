@@ -19,7 +19,7 @@ $findMasterKategori = MasterKategori::find()->all();
                 <div class="col-xl-6 col-lg-6 col-md-10 d-flex align-items-center" style="max-height: 500px;">
                     <div class="slider__content slider-one-content text-left">
                     <!--<span class="sub-title left_line mb-20 pl-55 animated wow fadeInUp"  data-wow-delay=".2s">Discover The City</span>-->
-                        <h1 class="main-title mb-25 animated wow fadeInUp"  data-wow-delay=".3s">Jaringan Informasi & Informasi Hukum (JDIH)</h1>
+                        <h1 class="main-title mb-25 animated wow fadeInUp"  data-wow-delay=".3s">Jaringan Dokumentasi & Informasi Hukum (JDIH)</h1>
                         <h6 class="sub-title2 mb-40 animated wow fadeInUp"  data-wow-delay=".4s">Bagian Hukum dan Sekretariat Daerah Kabupaten Toba</h6>
                         <div class="time-weather animated wow fadeInUp"  data-wow-delay=".6s">
                             <div class="main-head-search">
@@ -39,7 +39,7 @@ $findMasterKategori = MasterKategori::find()->all();
                 </div>
                 <div class="col-xl-6 col-lg-6 d-none d-lg-block" style="max-height: 500px">
                     <div class="slider-hero-img">
-                        <img class="img-fluid hero-right" src="logo/foto.png" alt="">
+                        <img class="img-fluid hero-right" src="logo/bupati.png" alt="">
                     </div>
                 </div>
             </div>
