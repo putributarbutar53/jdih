@@ -3,8 +3,8 @@
 namespace frontend\controllers\backend;
 
 use Yii;
-use backend\models\ProdukHukum;
-use backend\models\search\ProdukHukumSearch;
+use frontend\models\backend\ProdukHukum;
+use frontend\models\backend\search\ProdukHukumSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
