@@ -19,8 +19,12 @@
 <!--page-title-area end-->
 <section class="contact-box-area pt-40 pb-70">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-4">
+        <center>
+            <h2>Sekretariat Website JDIH Pemerintah Kabupaten Toba</h2><br>
+            <h3>BAGIAN HUKUM SETDAKAB TOBA</h3>
+        </center>
+        <div class="row">            
+            <div class="col-xl-4 col-lg-4 col-md-4">                
                 <div class="contacts text-center mb-30 pt-50 pb-45">
                     <div class="contacts__icon mb-35">
                         <i class="flaticon-call"></i>
@@ -28,8 +32,7 @@
                     <div class="contacts__list">
                         <h3 class="mb-15">Hubungi</h3>
                         <ul class="contact__list--item ">
-                            <li>+098 098 098 98</li>
-                            <li>098-098-098-90</li>
+                            <li>0813-6244-4195</li>
                         </ul>
                     </div>
                 </div>
@@ -42,8 +45,7 @@
                     <div class="contacts__list">
                         <h3 class="mb-15">Email</h3>
                         <ul class="contact__list--item ">
-                            <li>info@webmail.com</li>
-                            <li>jobs@webexample.com</li>
+                            <li>hukumtobasamosirkab@gmail.com</li>
                         </ul>
                     </div>
                 </div>
@@ -56,8 +58,8 @@
                     <div class="contacts__list">
                         <h3 class="mb-15">Alamat</h3>
                         <ul class="contact__list--item ">
-                            <li>16/A, Miranda Halim City</li>
-                            <li>New York, US</li>
+                            <li>Jl. Sutomo, Pagar Batu, Balige 22385</li>
+                            <li>Kabupaten Toba, Provinsi Sumatera Utara</li>
                         </ul>
                     </div>
                 </div>

@@ -77,13 +77,14 @@ class RancanganPhController extends Controller
             }
             $file = UploadedFile::getInstance($model, 'file');
 
-            $path = 'file/rancangan_produk_hukum/';
+            $path = Yii::getAlias('@frontend') . '/web/file/rancangan_produk_hukum/';
+            $pathDatabase = '/file/rancangan_produk_hukum/';
             FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
             $pathFile = '';
             if (isset($file)) {
                 $rand = rand();
                 $file->saveAs($path . $rand . 'rancangan_produk_hukum' . '.' . $file->extension);
-                $pathFile = $path . $rand . 'rancangan_produk_hukum' . '.' . $file->extension;
+                $pathFile = $pathDatabase . $rand . 'rancangan_produk_hukum' . '.' . $file->extension;
                 $model->file = $pathFile;
             }
             if ($model->save()) {
@@ -120,13 +121,14 @@ class RancanganPhController extends Controller
             }
             $file = UploadedFile::getInstance($model, 'file');
             if (!empty($file)) {
-                $path = 'file/rancangan_produk_hukum/';
+                $path = Yii::getAlias('@frontend') . '/web/file/rancangan_produk_hukum/';
+                $pathDatabase = '/file/rancangan_produk_hukum/';
                 FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
                 $pathFile = '';
                 if (isset($file)) {
                     $rand = rand();
                     $file->saveAs($path . $rand . 'rancangan_produk_hukum' . '.' . $file->extension);
-                    $pathFile = $path . $rand . 'rancangan_produk_hukum' . '.' . $file->extension;
+                    $pathFile = $pathDatabase . $rand . 'rancangan_produk_hukum' . '.' . $file->extension;
                     $model->file = $pathFile;
                 }
             } else {

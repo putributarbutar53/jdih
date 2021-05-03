@@ -77,25 +77,27 @@ class ArtikelController extends Controller
             }
             $thumbnail = UploadedFile::getInstance($model, 'thumbnail');
             if (!empty($thumbnail)) {
-                $path = 'file/artikel/thumbnail/';
+                $path = Yii::getAlias('@frontend') . '/web/file/artikel/thumbnail/';
+                $pathDatabase = '/file/artikel/thumbnail/';
                 FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
                 $pathFile = '';
                 if (isset($thumbnail)) {
                     $rand = rand();
                     $thumbnail->saveAs($path . $rand . '_thumbnail' . '.' . $thumbnail->extension);
-                    $pathFile = $path . $rand . '_thumbnail' . '.' . $thumbnail->extension;
+                    $pathFile = $pathDatabase . $rand . '_thumbnail' . '.' . $thumbnail->extension;
                     $model->thumbnail = $pathFile;
                 }
             }
             $file = UploadedFile::getInstance($model, 'file');
             if (!empty($file)) {
-                $path = 'file/artikel/file/';
+                $path = Yii::getAlias('@frontend') . '/web/file/artikel/file/';
+                $pathDatabase = '/file/artikel/file/';
                 FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
                 $pathFile = '';
                 if (isset($file)) {
                     $rand = rand();
                     $file->saveAs($path . $rand . '_artikel' . '.' . $file->extension);
-                    $pathFile = $path . $rand . '_artikel' . '.' . $file->extension;
+                    $pathFile = $pathDatabase . $rand . '_artikel' . '.' . $file->extension;
                     $model->file = $pathFile;
                 }
             }
@@ -133,13 +135,14 @@ class ArtikelController extends Controller
             }
             $thumbnail = UploadedFile::getInstance($model, 'thumbnail');
             if (!empty($thumbnail)) {
-                $path = 'file/artikel/thumbnail/';
+                $path = Yii::getAlias('@frontend') . '/web/file/artikel/thumbnail/';
+                $pathDatabase = '/file/artikel/thumbnail/';
                 FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
                 $pathFile = '';
                 if (isset($thumbnail)) {
                     $rand = rand();
                     $thumbnail->saveAs($path . $rand . '_thumbnail' . '.' . $thumbnail->extension);
-                    $pathFile = $path . $rand . '_thumbnail' . '.' . $thumbnail->extension;
+                    $pathFile = $pathDatabase . $rand . '_thumbnail' . '.' . $thumbnail->extension;
                     $model->thumbnail = $pathFile;
                 }
             } else {
@@ -147,13 +150,14 @@ class ArtikelController extends Controller
             }
             $file = UploadedFile::getInstance($model, 'file');
             if (!empty($file)) {
-                $path = 'file/artikel/file/';
+                $path = Yii::getAlias('@frontend') . '/web/file/artikel/file/';
+                $pathDatabase = '/file/artikel/file/';
                 FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
                 $pathFile = '';
                 if (isset($file)) {
                     $rand = rand();
                     $file->saveAs($path . $rand . '_artikel' . '.' . $file->extension);
-                    $pathFile = $path . $rand . '_artikel' . '.' . $file->extension;
+                    $pathFile = $pathDatabase . $rand . '_artikel' . '.' . $file->extension;
                     $model->file = $pathFile;
                 }
             } else {

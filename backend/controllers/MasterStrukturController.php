@@ -71,13 +71,14 @@ class MasterStrukturController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $foto = UploadedFile::getInstance($model, 'foto');
             if (!empty($foto)) {
-                $path = 'foto/';
+                $path = Yii::getAlias('@frontend') . '/web/foto/';
+                $pathDatabase = '/foto/';
                 FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
                 $pathFile = '';
                 if (isset($foto)) {
                     $rand = rand();
                     $foto->saveAs($path . $rand . '_foto' . '.' . $foto->extension);
-                    $pathFile = $path . $rand . '_foto' . '.' . $foto->extension;
+                    $pathFile = $pathDatabase . $rand . '_foto' . '.' . $foto->extension;
                     $model->foto = $pathFile;
                 }
             }

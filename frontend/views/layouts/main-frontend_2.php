@@ -305,9 +305,9 @@ $findMasterKategori = MasterKategori::find()->all();
                         <div class="footer__widget mb-30">
                             <h6 class="fot-title mb-30">Hubungi Kami</h6>
                             <ul class="fot-list">
-                                <li>Kabupaten Toba</li>
-                                <li>+62632-888-111</li>
-                                <li><a href="govtpress/#">jdihkabtoba@tobakab.go.id</a></li>                                
+                                <li>Sekretariat Website JDIH Pemerintah Kabupaten Toba</li>
+                                <li>0813-6244-4195</li>
+                                <li>hukumtobasamosirkab@gmail.com</li>
                             </ul>
                         </div>
                     </div>
