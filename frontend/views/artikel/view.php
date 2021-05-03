@@ -32,7 +32,7 @@ use yii\helpers\Url;
                     <div class="blog blogs mb-40">
                         <div class="blog__content">
                             <div class="blog-details__img mb-50">
-                                <img src="<?= Yii::getAlias('@imageurl') . '/' . $model->thumbnail ?>" alt="">
+                                <img src="<?= $model->thumbnail ?>" alt="">
                             </div>
                             <h3 class="blog-title mb-15"><?= $model->judul ?></h3>
                             <div class="blog__content--meta mb-20">                                
@@ -47,7 +47,7 @@ use yii\helpers\Url;
                                 <div class="blog-details-tag">
                                     <h6 class="mb-15">Unduh File</h6>
                                     <div class="tag-list">
-                                        <a href="<?= Yii::getAlias('@imageurl') . '/' . $model->file ?>" target="_blank"><i class="fa fa-cloud-download" aria-hidden="true"></i></a>
+                                        <a href="<?= $model->file ?>" target="_blank"><i class="fa fa-cloud-download" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ use yii\helpers\Url;
                                 echo '<li>
                                 <div class="post d-flex align-items-center mb-30">
                                     <div class="post__thumb mr-20">
-                                        <img src="' . Yii::getAlias('@imageurl') . '/' . $fA->thumbnail . '" alt="" style="max-height:80px;max-width:80px;">
+                                        <img src="' . $fA->thumbnail . '" alt="" style="max-height:80px;max-width:80px;">
                                     </div>
                                     <div class="post__content">
                                         <h6 class="post-title"><a href="' . Url::toRoute(['artikel/view', 'id' => $fA->id]) . '">' . $fA->judul . '</a></h6>

@@ -61,8 +61,8 @@ use kartik\detail\DetailView;
                                     'attribute' => 'file',
                                     'label' => 'Unduh',
                                     'format' => 'raw',
-                                    'value' => '<a href=' . Yii::getAlias('@imageurl') . '/' . $model->file . ' class="btn btn-md btn-primary" target="_blank"><i class="fa fa-download"></i></a>'
-                                ],
+                                    'value' => '<a href=' . $model->file . ' class="btn btn-md btn-primary" target="_blank"><i class="fa fa-download"></i></a>'
+        ],
                             ]
                         ])
                         ?>
