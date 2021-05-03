@@ -96,7 +96,7 @@ class Artikel extends \yii\db\ActiveRecord
                 [['thumbnail'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpeg,png,gif,jpg',],
                 [['thumbnail'], 'file', 'maxSize' => 5000 * 1024, 'tooBig' => 'Limit is 5MB'],
                 [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf,docx,jpeg,png,gif,jpg,doc,xls,xlsx',],
-                [['file'], 'file', 'maxSize' => 100000 * 1024, 'tooBig' => 'Limit is 100MB'],
+                [['file'], 'file', 'maxSize' => 200000 * 1024, 'tooBig' => 'Limit is 200MB'],
         ];
     }
 

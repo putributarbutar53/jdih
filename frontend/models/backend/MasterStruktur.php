@@ -86,7 +86,7 @@ class MasterStruktur extends \yii\db\ActiveRecord
             [['nip', 'nama'], 'string', 'max' => 255],
             [['id_jabatan'], 'exist', 'skipOnError' => true, 'targetClass' => MasterJabatan::className(), 'targetAttribute' => ['id_jabatan' => 'id']],
             [['foto'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpeg,png,gif,jpg',],
-            [['foto'], 'file', 'maxSize' => 100000 * 1024, 'tooBig' => 'Limit is 100MB'],
+            [['foto'], 'file', 'maxSize' => 200000 * 1024, 'tooBig' => 'Limit is 200MB'],
         ];
     }
 
