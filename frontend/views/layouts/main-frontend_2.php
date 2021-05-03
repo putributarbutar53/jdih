@@ -154,7 +154,7 @@ $findMasterKategori = MasterKategori::find()->all();
                             </div>
                             <div class="main-header-right-one d-none d-xl-block">
                                 <div class="donate">
-                                    <a href="#" class="theme_btn theme_btn2">Masuk <i class="fal fa-long-arrow-right"></i></a>
+                                    <a href="<?= Url::toRoute(['backend/site/login']) ?>" class="theme_btn theme_btn2">Masuk <i class="fal fa-long-arrow-right"></i></a>
                                 </div>
 
                             </div>
