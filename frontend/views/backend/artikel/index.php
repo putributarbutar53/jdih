@@ -2,9 +2,9 @@
 
 use yii\helpers\Html;
 use kartik\grid\GridView;
-use backend\models\MasterKategoriArtikel;
+use frontend\models\backend\MasterKategoriArtikel;
 use yii\helpers\ArrayHelper;
-use backend\models\MasterStatusPublish;
+use frontend\models\backend\MasterStatusPublish;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ArtikelSearch */

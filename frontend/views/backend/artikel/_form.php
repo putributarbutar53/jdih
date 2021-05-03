@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
-use backend\models\MasterKategoriArtikel;
+use frontend\models\backend\MasterKategoriArtikel;
 use mihaildev\ckeditor\CKEditor;
 use kartik\file\FileInput;
 use kartik\checkbox\CheckboxX;

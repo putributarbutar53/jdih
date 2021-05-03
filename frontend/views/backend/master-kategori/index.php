@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'label' => 'Status',
             'value' => function($model) {
-                $findStatus = \backend\models\MasterStatus::findOne($model->id_status);
+                $findStatus = frontend\models\backend\MasterStatus::findOne($model->id_status);
                 return $findStatus->nama;
             }
         ],

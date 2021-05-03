@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
-use backend\models\MasterJabatan;
+use frontend\models\backend\MasterJabatan;
 use kartik\file\FileInput;
 
 /* @var $this yii\web\View */

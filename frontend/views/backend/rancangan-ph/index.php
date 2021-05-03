@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 use kartik\grid\GridView;
-use backend\models\RancanganPh;
+use frontend\models\backend\RancanganPh;
 use yii\helpers\ArrayHelper;
-use backend\models\MasterKategori;
-use backend\models\MasterStatusPublish;
+use frontend\models\backend\MasterKategori;
+use frontend\models\backend\MasterStatusPublish;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\RancanganPhSearch */
