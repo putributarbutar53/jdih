@@ -31,7 +31,7 @@
                 <div class="counsilors counsilors-02 counsilor-03 white-bg mb-30">
                     <div class="counsilors__img pos-rel mb-20">
                         <div class="counsilors__img--box">
-                            <img src="' . Yii::getAlias('@imageurl') . $fS->foto . '" alt="">
+                            <img src="' . $fS->foto . '" alt="">
                         </div>
                     </div>
                     <div class="counsilors__content">

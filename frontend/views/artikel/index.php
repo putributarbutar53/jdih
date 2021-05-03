@@ -33,7 +33,7 @@ use yii\helpers\Url;
                     foreach ($model as $x) {
                         echo '<div class="blog mb-40">
                         <div class="blog__img mb-50">
-                            <img src="' . Yii::getAlias('@imageurl') . '/' . $x->thumbnail . '" alt="" style="max-height:400px;">
+                            <img src="' . $x->thumbnail . '" alt="" style="max-height:400px;">
                         </div>
                         <div class="blog__content">
                             <h3 class="blog-title mb-15"><a href="' . Url::toRoute(['artikel/view', 'id' => $x->id]) . '">' . $x->judul . '</a></h3>
@@ -70,7 +70,7 @@ use yii\helpers\Url;
                                 echo '<li>
                                 <div class="post d-flex align-items-center mb-30">
                                     <div class="post__thumb mr-20">
-                                        <img src="' . Yii::getAlias('@imageurl') . '/' . $fA->thumbnail . '" alt="" style="max-height:80px;max-width:80px;">
+                                        <img src="' . $fA->thumbnail . '" alt="" style="max-height:80px;max-width:80px;">
                                     </div>
                                     <div class="post__content">
                                         <h6 class="post-title"><a href="' . Url::toRoute(['artikel/view', 'id' => $fA->id]) . '">' . $fA->judul . '</a></h6>

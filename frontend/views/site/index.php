@@ -232,7 +232,7 @@ $findMasterKategori = MasterKategori::find()->all();
                                     <div class="events pos-rel mb-60">
                                         <div class="events__img">
                                             <div class="events__img--thumb">
-                                                <img src="' . Yii::getAlias('@imageurl') . '/' . $fAA->thumbnail . '" alt="">
+                                                <img src="' . $fAA->thumbnail . '" alt="">
                                             </div>
                                             <span><b>' . date('d', strtotime($fAA->created_at)) . '</b>' . date('M', strtotime($fAA->created_at)) . '</span>
                                         </div>
@@ -257,7 +257,7 @@ $findMasterKategori = MasterKategori::find()->all();
                                     <div class="events pos-rel mb-60">
                                         <div class="events__img">
                                             <div class="events__img--thumb">
-                                                <img src="' . Yii::getAlias('@imageurl') . '/' . $fB->thumbnail . '" alt="">
+                                                <img src="' . $fB->thumbnail . '" alt="">
                                             </div>
                                             <span><b>' . date('d', strtotime($fB->created_at)) . '</b>' . date('M', strtotime($fB->created_at)) . '</span>
                                         </div>
@@ -282,7 +282,7 @@ $findMasterKategori = MasterKategori::find()->all();
                                     <div class="events pos-rel mb-60">
                                         <div class="events__img">
                                             <div class="events__img--thumb">
-                                                <img src="' . Yii::getAlias('@imageurl') . '/' . $fA->thumbnail . '" alt="">
+                                                <img src="' . $fA->thumbnail . '" alt="">
                                             </div>
                                             <span><b>' . date('d', strtotime($fA->created_at)) . '</b>' . date('M', strtotime($fA->created_at)) . '</span>
                                         </div>
