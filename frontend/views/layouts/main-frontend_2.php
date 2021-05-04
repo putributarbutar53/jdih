@@ -154,7 +154,14 @@ $findMasterKategori = MasterKategori::find()->all();
                             </div>
                             <div class="main-header-right-one d-none d-xl-block">
                                 <div class="donate">
+                                    <?php if (Yii::$app->user->isGuest) { ?>
                                     <a href="<?= Url::toRoute(['backend/site/login']) ?>" class="theme_btn theme_btn2">Masuk <i class="fal fa-long-arrow-right"></i></a>
+                                    <?php } else {
+                                        ?>
+                                            <a href="<?= Url::toRoute(['backend/site/index']) ?>" class="theme_btn theme_btn2">Kembali Ke Admin <i class="fal fa-long-arrow-right"></i></a>
+                                            <?php
+                                        }
+                                        ?>
                                 </div>
 
                             </div>
