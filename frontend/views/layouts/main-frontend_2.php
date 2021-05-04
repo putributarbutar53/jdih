@@ -203,7 +203,7 @@ $findMasterKategori = MasterKategori::find()->all();
             <!-- side-mobile-menu start -->
             <nav class="side-mobile-menu">
                 <ul id="mobile-menu-active">
-                    <li><a href="<?= Url::toRoute(['index']) ?>">Beranda</a></li>
+                    <li><a href="<?= Url::toRoute(['site/index']) ?>">Beranda</a></li>
                     <li><a href="#">Profil <i class="far fa-chevron-down"></i></a>
                         <ul class="submenu">
                             <li><a href="<?= Url::toRoute(['master-profil/view-vm']) ?>">Visi & Misi</a></li>
