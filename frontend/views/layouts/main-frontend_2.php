@@ -209,6 +209,14 @@ $findMasterKategori = MasterKategori::find()->all();
 
             <!-- side-mobile-menu start -->
             <nav class="side-mobile-menu">
+                <?php if (Yii::$app->user->isGuest) { ?>
+                <li><a href="<?= Url::toRoute(['backend/site/login']) ?>">Masuk</a></li>
+                <?php } else {
+                    ?>
+                    <li><a href="<?= Url::toRoute(['backend/site/index']) ?>">Kembali Ke Admin</a></li>
+                    <?php
+                }
+                ?>
                 <ul id="mobile-menu-active">
                     <li><a href="<?= Url::toRoute(['site/index']) ?>">Beranda</a></li>
                     <li><a href="#">Profil <i class="far fa-chevron-down"></i></a>
