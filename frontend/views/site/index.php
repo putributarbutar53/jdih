@@ -20,7 +20,7 @@ $findMasterKategori = MasterKategori::find()->all();
                     <div class="slider__content slider-one-content text-left">
                     <!--<span class="sub-title left_line mb-20 pl-55 animated wow fadeInUp"  data-wow-delay=".2s">Discover The City</span>-->
                         <h1 class="main-title mb-25 animated wow fadeInUp"  data-wow-delay=".3s">Jaringan Dokumentasi & Informasi Hukum (JDIH)</h1>
-                        <h6 class="sub-title2 mb-40 animated wow fadeInUp"  data-wow-delay=".4s">Bagian Hukum dan Sekretariat Daerah Kabupaten Toba</h6>
+                        <h6 class="sub-title2 mb-40 animated wow fadeInUp"  data-wow-delay=".4s">Bagian Hukum Sekretariat Daerah Kabupaten Toba</h6>
                         <div class="time-weather animated wow fadeInUp"  data-wow-delay=".6s">
                             <div class="main-head-search">
                                 <div class="place d-none d-lg-inline-block ml-45">
