@@ -90,6 +90,8 @@ class ProdukHukumController extends Controller
                 $pathFile = $pathDatabase . $rand . '_produk_hukum' . '.' . $file->extension;
                 $model->file = $pathFile;
             }
+            $tahun = $model->tahun;
+            $model->tahun = date("Y-m-d", strtotime($tahun));
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', "Produk Hukum Berhasil Disimpan");
                 return $this->redirect(['index']);
@@ -137,6 +139,8 @@ class ProdukHukumController extends Controller
             } else {
                 $model->file = $modelx->file;
             }
+            $tahun = $model->tahun;
+            $model->tahun = date("Y-m-d", strtotime($tahun));
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', "Produk Hukum Berhasil DiUpdate");
                 return $this->redirect(['index']);

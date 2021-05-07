@@ -41,7 +41,10 @@ use yii\helpers\Html;
         ],
             [
             'attribute' => 'tahun',
-            'headerOptions' => ['style' => 'width:10%'],
+            'headerOptions' => ['style' => 'width:15%'],
+            'value' => function($model) {
+                return date("d-M-Y", strtotime($model->tahun));
+            }
         ],
             [
             'attribute' => 'judul',

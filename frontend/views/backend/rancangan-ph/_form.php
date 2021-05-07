@@ -37,18 +37,26 @@ use kartik\checkbox\CheckboxX;
             </td>
             <td width="1%"></td>
             <td width="20%">
-                <?=
-                $form->field($model, 'tahun')->widget(DatePicker::classname(), [
-                    'options' => ['value' => date('Y')],
-                    'removeButton' => false,
+                <?php
+//                $form->field($model, 'tahun')->widget(DatePicker::classname(), [
+//                    'options' => ['value' => date('Y')],
+//                    'removeButton' => false,
+//                    'pluginOptions' => [
+//                        'autoclose' => true,
+//                        'format' => 'yyyy', //yyyy choose to year, yyyy-mm to month, yyyy-mm-dd to day
+//                        'startView' => 2, //The actual range (0: day 1: day 2: year)
+//                        'maxViewMode' => 2, //Maximum selection range (years)
+//                        'minViewMode' => 2, //Minimum selection range (years)
+//                    ]
+//                ])
+                echo $form->field($model, 'tahun')->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => 'Pilih Tahun'],
                     'pluginOptions' => [
                         'autoclose' => true,
-                        'format' => 'yyyy', //yyyy choose to year, yyyy-mm to month, yyyy-mm-dd to day
-                        'startView' => 2, //The actual range (0: day 1: day 2: year)
-                        'maxViewMode' => 2, //Maximum selection range (years)
-                        'minViewMode' => 2, //Minimum selection range (years)
+                        'format' => 'dd-mm-yyyy',
+                        'todayHighlight' => true,
                     ]
-                ])
+                ]);
                 ?>
             </td>
         </tr>

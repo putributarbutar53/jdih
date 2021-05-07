@@ -31,7 +31,7 @@ use kartik\detail\DetailView;
                 <tr>
                     <td valign="top">
                         <?php
-                        $heading = 'Menampilkan ' . $model->kategori->nama . ' No ' . $model->nomor . ' Tahun ' . $model->tahun;
+                        $heading = 'Menampilkan ' . $model->kategori->nama . ' No ' . $model->nomor . ' Tahun ' . date('Y', strtotime($model->tahun));
                         echo DetailView::widget([
                             'model' => $model,
                             'condensed' => true,
@@ -56,7 +56,11 @@ use kartik\detail\DetailView;
                                     'attribute' => 'isi',
                                     'format' => 'raw',
                                 ],
-                                    ['attribute' => 'tahun', 'type' => DetailView::INPUT_DATE],
+                                    [
+                                    'attribute' => 'tahun',
+                                    'type' => DetailView::INPUT_DATE,
+                                    'value' => date('d-M-Y', strtotime($model->tahun))
+                                ],
                                     [
                                     'attribute' => 'file',
                                     'label' => 'Unduh',
