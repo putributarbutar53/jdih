@@ -78,12 +78,21 @@ use kartik\checkbox\CheckboxX;
     ]);
     ?>
     <?php
-    $form->field($model, 'id_status_publish')->widget(CheckboxX::classname(), [
-        'pluginOptions' => ['threeState' => false],
-        'value' => 1,
-    ])->label('Published');
+    $statusBerlaku = array(
+        '10' => 'Berlaku',
+        '0' => 'Tidak Berlaku',
+    );
     ?>
-    <?php
+    <?=
+    $form->field($model, 'active')->widget(Select2::classname(), [
+        'data' => $statusBerlaku,
+        'options' => ['placeholder' => 'Pilih Status'],
+    'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ])->label('Status Berlaku');
+    ?>
+<?php
     if ($model->isNewRecord) {
         $value = 0;
     } else {
