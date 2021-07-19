@@ -288,7 +288,7 @@ class SiteController extends Controller
                 'tempatTerbit' => 'Balige',
                 'penerbit' => '-',
                 'deskripsiFisik' => '-',
-                'sumber' => '-',
+                'sumber' => $findProduks->isi,
                 'subjek' => $findProduks->kategori->slug,
                 'isbn' => '-',
                 'status' => $status,

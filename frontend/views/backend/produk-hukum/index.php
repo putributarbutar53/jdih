@@ -22,7 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    <?php
+    $statusBerlaku = array(
+        '10' => 'Berlaku',
+        '0' => 'Tidak Berlaku',
+    );
+    ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -85,8 +90,27 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'filterInputOptions' => ['placeholder' => 'Status'],
         ],
+            [
+            'attribute' => 'active',
+            'label' => 'Status Berlaku/Tidak Berlaku',
+            'headerOptions' => ['style' => 'width:8%'],
+            'value' => function($model) {
+                if ($model->active == 10) {
+                    $status = 'Berlaku';
+                } else {
+                    $status = 'Tidak Berlaku';
+                }
+                return $status;
+            },
+            'filterType' => GridView::FILTER_SELECT2,
+            'filter' => $statusBerlaku,
+                'filterWidgetOptions' => [
+                'pluginOptions' => ['allowClear' => true],
+            ],
+            'filterInputOptions' => ['placeholder' => 'Status'],
+        ],
         //'isi:ntext',
-            //'file',
+        //'file',
             //'id_status_publish',
             //'created_at',
             //'updated_at',
