@@ -281,7 +281,7 @@ class SiteController extends Controller
                 'tanggal_pengundangan' => $findProduks->tahun,
                 'jenis' => $findProduks->kategori->nama,
                 'noPeraturan' => $findProduks->nomor,
-                'judul' => $findProduks->kategori->nama . ' Kabupaten Toba Nomor ' . $findProduks->nomor . ' Tahun ' . date('Y', strtotime($findProduks->tahun)) . ' tentang ' . $findProduks->judul,
+                'judul' => $findProduks->kategori->nama . ' Nomor ' . $findProduks->nomor . ' Tahun ' . date('Y', strtotime($findProduks->tahun)) . ' tentang ' . $findProduks->judul,
                 'noPanggil' => '-',
                 'singkatanJenis' => $findProduks->kategori->slug,
                 'tempatTerbit' => 'Balige',
