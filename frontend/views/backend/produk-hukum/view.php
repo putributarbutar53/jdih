@@ -55,7 +55,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             [
                             'attribute' => 'isi',
                             'format' => 'raw',
-                        ],
+            'label' => 'Sumber',
+        ],
                             ['attribute' => 'tahun', 'type' => DetailView::INPUT_DATE],
                             [
                             'attribute' => 'file',

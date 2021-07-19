@@ -33,8 +33,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             [
+                'attribute' => 'id_kategori',
+                'label' => 'Kategori',
+                'value' => function($model) {
+                    return $model->kategori->nama;
+                },
+                'filterType' => GridView::FILTER_SELECT2,
+                'filter' => ArrayHelper::map(MasterKategori::find()->orderBy('id')->asArray()->all(), 'id', 'nama'),
+                'filterWidgetOptions' => [
+                    'pluginOptions' => ['allowClear' => true],
+                ],
+                'filterInputOptions' => ['placeholder' => 'Kategori'],
+            ],
+                [
+                'attribute' => 'nomor',
+                'headerOptions' => ['style' => 'width:8%'],
+            ],
+                [
             'attribute' => 'tahun',
             'headerOptions' => ['style' => 'width:10%'],
             'filterType' => GridView::FILTER_SELECT2,
@@ -47,69 +63,53 @@ $this->params['breadcrumbs'][] = $this->title;
                 return $model->tahun;
             }
         ],
-            [
-            'attribute' => 'nomor',
-            'headerOptions' => ['style' => 'width:8%'],
-        ],
-            [
+                [
             'attribute' => 'judul',
             'headerOptions' => ['style' => 'width:40%'],
-        ],
-            [
-            'attribute' => 'id_kategori',
-            'label' => 'Kategori',
-            'value' => function($model) {
-                return $model->kategori->nama;
-            },
-            'filterType' => GridView::FILTER_SELECT2,
-            'filter' => ArrayHelper::map(MasterKategori::find()->orderBy('id')->asArray()->all(), 'id', 'nama'),
-            'filterWidgetOptions' => [
-                'pluginOptions' => ['allowClear' => true],
+                'contentOptions' => ['style' => 'width:200px; white-space: normal;'],
             ],
-            'filterInputOptions' => ['placeholder' => 'Kategori'],
-        ],
-            [
-            'label' => 'Author',
-            'format' => 'raw',
-            'value' => function($model) {
-                $modelUser = common\models\User::findOne($model->created_by);
-                return ucfirst($modelUser->username);
-            }
-        ],
-            [
-            'attribute' => 'id_status_publish',
-            'label' => 'Status',
-            'headerOptions' => ['style' => 'width:8%'],
-            'value' => function($model) {
-                return $model->statusPublish->nama;
-            },
-            'filterType' => GridView::FILTER_SELECT2,
-            'filter' => ArrayHelper::map(MasterStatusPublish::find()->orderBy('id')->asArray()->all(), 'id', 'nama'),
-            'filterWidgetOptions' => [
-                'pluginOptions' => ['allowClear' => true],
-            ],
-            'filterInputOptions' => ['placeholder' => 'Status'],
-        ],
-            [
-            'attribute' => 'active',
-            'label' => 'Status Berlaku/Tidak Berlaku',
-            'headerOptions' => ['style' => 'width:8%'],
-            'value' => function($model) {
-                if ($model->active == 10) {
-                    $status = 'Berlaku';
-                } else {
-                    $status = 'Tidak Berlaku';
-                }
-                return $status;
-            },
-            'filterType' => GridView::FILTER_SELECT2,
-            'filter' => $statusBerlaku,
-                'filterWidgetOptions' => [
-                'pluginOptions' => ['allowClear' => true],
-            ],
-            'filterInputOptions' => ['placeholder' => 'Status'],
-        ],
-        //'isi:ntext',
+//                [
+//            'label' => 'Author',
+//            'format' => 'raw',
+//            'value' => function($model) {
+//                $modelUser = common\models\User::findOne($model->created_by);
+//                return ucfirst($modelUser->username);
+//            }
+//        ],
+//            [
+//            'attribute' => 'id_status_publish',
+//            'label' => 'Status',
+//            'headerOptions' => ['style' => 'width:8%'],
+//            'value' => function($model) {
+//                return $model->statusPublish->nama;
+//            },
+//            'filterType' => GridView::FILTER_SELECT2,
+//            'filter' => ArrayHelper::map(MasterStatusPublish::find()->orderBy('id')->asArray()->all(), 'id', 'nama'),
+//            'filterWidgetOptions' => [
+//                'pluginOptions' => ['allowClear' => true],
+//            ],
+//            'filterInputOptions' => ['placeholder' => 'Status'],
+//        ],
+//            [
+//            'attribute' => 'active',
+//            'label' => 'Status Berlaku/Tidak Berlaku',
+//            'headerOptions' => ['style' => 'width:8%'],
+//            'value' => function($model) {
+//                if ($model->active == 10) {
+//                    $status = 'Berlaku';
+//                } else {
+//                    $status = 'Tidak Berlaku';
+//                }
+//                return $status;
+//            },
+//            'filterType' => GridView::FILTER_SELECT2,
+//            'filter' => $statusBerlaku,
+//                'filterWidgetOptions' => [
+//                'pluginOptions' => ['allowClear' => true],
+//            ],
+//            'filterInputOptions' => ['placeholder' => 'Status'],
+//        ],
+            //'isi:ntext',
         //'file',
             //'id_status_publish',
             //'created_at',
