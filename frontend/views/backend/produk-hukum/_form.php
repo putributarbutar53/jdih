@@ -69,7 +69,7 @@ use kartik\checkbox\CheckboxX;
         'editorOptions' => [
             'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
             'inline' => false, //по умолчанию false
-    ]]);
+    ]])->label('Sumber');
     ?>
 
     <?=
