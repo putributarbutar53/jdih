@@ -161,7 +161,7 @@ $findMasterKategori = MasterKategori::find()->all();
                         <div class="row justify-content-sm-center">
                             <div class="col-xl-7 col-lg-6 col-md-5 col-sm-5">
                                 <div class="events ml-60 pb-35">
-                                    <h3 class="events-title" style="font-size:18pt">' . $fph->kategori->nama . ' Nomor ' . $fph->nomor . ' Tahun ' . $fph->tahun . '</h3>
+                                    <h3 class="events-title" style="font-size:18pt">' . $fph->kategori->nama . ' Nomor ' . $fph->nomor . ' Tahun ' . date('Y', strtotime($fph->tahun)) . '</h3>
                                     <span class="time-date"><i class="fal fa-clock"></i> ' . date("d-M-Y", strtotime($fph->created_at)) . '</span>
                                 </div>
                             </div>
