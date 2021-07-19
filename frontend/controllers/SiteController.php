@@ -294,7 +294,7 @@ class SiteController extends Controller
                 'status' => $status,
                 'bahasa' => 'Indonesia',
                 'bidangHukum' => '-',
-                'teuBadan' => 'Sumatera Utara Kabupaten Toba',
+                'teuBadan' => 'Sumatera Utara.Kabupaten Toba',
                 'nomorIndukBuku' => '-',
                 'fileDownload' => end($namaFile),
                 'urlDownload' => 'https://jdih.tobakab.go.id/file/produk_hukum/' . end($namaFile),
