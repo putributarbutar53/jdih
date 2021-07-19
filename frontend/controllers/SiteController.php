@@ -260,4 +260,50 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
+    public function actionSinkronisasiJdih() {
+        $findProduk = \frontend\models\backend\ProdukHukum::find()
+                ->all();
+        $data = array();
+        foreach ($findProduk as $findProduks) {
+//            $data[] = $findProduks->id;
+//            $data[] = date('Y', strtotime($findProduks->tahun));
+            if ($findProduks->active == 10) {
+                $status = 'Berlaku';
+            } else {
+                $status = 'Tidak Berlaku';
+            }
+            $namaFile = explode('/', $findProduks->file);
+            $data[] = [
+                'idData' => $findProduks->id,
+                'tahun_pengundangan' => date('Y', strtotime($findProduks->tahun)),
+                'tanggal_pengundangan' => $findProduks->tahun,
+                'tanggal_pengundangan' => $findProduks->tahun,
+                'jenis' => $findProduks->kategori->nama,
+                'noPeraturan' => $findProduks->nomor,
+                'judul' => $findProduks->judul,
+                'noPanggil' => '-',
+                'singkatanJenis' => $findProduks->kategori->slug,
+                'tempatTerbit' => '-',
+                'penerbit' => '-',
+                'deskripsiFisik' => '-',
+                'sumber' => '-',
+                'subjek' => $findProduks->judul,
+                'isbn' => '-',
+                'status' => $status,
+                'bahasa' => 'Indonesia',
+                'bidangHukum' => '-',
+                'teuBadan' => '-',
+                'nomorIndukBuku' => '-',
+                'fileDownload' => end($namaFile),
+                'urlDownload' => 'https://jdih.tobakab.go.id/file/produk_hukum/' . end($namaFile),
+                'urlDetailPeraturan' => 'https://jdih.tobakab.go.id/index.php?r=produk-hukum%2Fdetail-produk-hukum&id=' . $findProduks->id,
+                'operasi' => '4',
+                'display' => '1',
+            ];
+        }
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return $data;
+    }
+
 }
