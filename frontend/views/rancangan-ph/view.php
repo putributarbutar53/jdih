@@ -27,7 +27,7 @@ use yii\helpers\Html;
 <!--events-details-area start-->
 <section class="events-list-area pt-40 pb-100">
     <div class="container">
-        <div class="row">
+        <div class="row" style="color:black">
             <?php
             echo GridView::widget([
                 'dataProvider' => $dataProvider,
