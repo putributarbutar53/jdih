@@ -34,8 +34,8 @@ use yii\helpers\Html;
                 'filterModel' => $searchModel,
     'options' => ['style' => 'width:100%'],
     'columns' => [
-                        ['class' => 'yii\grid\SerialColumn'],
-                    [
+                        ['class' => 'kartik\grid\SerialColumn'],
+            [
             'attribute' => 'nomor',
             'headerOptions' => ['style' => 'width:15%'],
         ],
@@ -43,7 +43,7 @@ use yii\helpers\Html;
             'attribute' => 'tahun',
             'headerOptions' => ['style' => 'width:15%'],
             'value' => function($model) {
-                return date("d-M-Y", strtotime($model->tahun));
+                return date("Y", strtotime($model->tahun));
             }
         ],
             [
@@ -51,7 +51,7 @@ use yii\helpers\Html;
             'headerOptions' => ['style' => 'width:70%'],
         ],
             [
-                        'class' => 'yii\grid\ActionColumn',
+                        'class' => 'kartik\grid\ActionColumn',
             'headerOptions' => ['style' => 'width:5%'],
             'template' => '{view}',
                         'buttons' => [

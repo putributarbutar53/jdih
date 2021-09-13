@@ -43,7 +43,7 @@ use yii\helpers\Html;
             'attribute' => 'tahun',
             'headerOptions' => ['style' => 'width:15%'],
             'value' => function($model) {
-                return date("d-M-Y", strtotime($model->tahun));
+                return date("Y", strtotime($model->tahun));
             }
         ],
             [

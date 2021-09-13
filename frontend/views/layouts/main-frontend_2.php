@@ -297,8 +297,8 @@ $findMasterKategori = MasterKategori::find()->all();
                                         ->limit(5)
                                         ->all();
                                 foreach ($findProdukHukum as $fPH) {
-                                    echo "<li><a href='" . Url::toRoute(['produk-hukum/detail-produk-hukum', 'id' => $fPH->id]) . "'>" . $fPH->kategori->nama . " Nomor " . $fPH->nomor . " Tahun " . $fPH->tahun . "</a></li>";
-                                }
+                                    echo "<li><a href='" . Url::toRoute(['produk-hukum/detail-produk-hukum', 'id' => $fPH->id]) . "'>" . $fPH->kategori->nama . " Nomor " . $fPH->nomor . " Tahun " . date('Y', strtotime($fPH->tahun)) . "</a></li>";
+}
                                 ?>
                             </ul>
                         </div>
