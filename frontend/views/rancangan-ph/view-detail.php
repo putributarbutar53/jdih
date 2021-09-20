@@ -31,7 +31,7 @@ use kartik\detail\DetailView;
                 <tr>
                     <td valign="top">
                         <?php
-                        $heading = 'Menampilkan ' . $model->kategori->nama . ' No ' . $model->nomor . ' Tahun ' . date('Y', strtotime($model->tahun));
+                        $heading = 'Menampilkan Rancangan ' . $model->kategori->nama . ' No ' . $model->nomor . ' Tahun ' . date('Y', strtotime($model->tahun));
                         echo DetailView::widget([
                             'model' => $model,
                             'condensed' => true,
