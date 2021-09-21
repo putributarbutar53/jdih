@@ -26,7 +26,7 @@ use yii\grid\GridView;
 <!--team-biography-area start-->
 <section class="team-biography-area pb-30">
     <div class="container">
-        <div class="row">
+        <div class="row" style="color:black">
             <div class="col-xl-12">
                 <div class="biographs">
                     <?php
