@@ -112,6 +112,7 @@ $findMasterKategori = MasterKategori::find()->all();
                                                 <li><a href="<?= Url::toRoute(['master-profil/view-s']) ?>">Sejarah JDIH</a></li>
                                                 <li><a href="<?= Url::toRoute(['master-struktur/view-so']) ?>">Struktur Organisasi</a></li>
                                                 <li><a href="<?= Url::toRoute(['master-profil/view-con']) ?>">Hubungi Kami</a></li>
+                                                <li><a href="<?= Url::toRoute(['file-download/view-fd']) ?>">File Download</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Produk Hukum <i class="far fa-chevron-down"></i></a>

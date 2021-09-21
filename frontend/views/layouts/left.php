@@ -70,6 +70,7 @@ $username = Yii::$app->user->identity->username;
                         ['label' => 'Profil', 'icon' => 'file-code-o', 'url' => ['/backend/master-profil/index'],],
                             ['label' => 'Struktur', 'icon' => 'dashboard', 'url' => ['/backend/master-struktur/index'],],
                             ['label' => 'Jabatan', 'icon' => 'dashboard', 'url' => ['/backend/master-jabatan/index'],],
+                            ['label' => 'File Download', 'icon' => 'dashboard', 'url' => ['/backend/file-download/index'],],
                     ],
                 ],
                 ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
