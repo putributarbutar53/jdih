@@ -103,16 +103,35 @@ class FileDownloadController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id) {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $modelx = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model, 'file');
+            if (!empty($file)) {
+                $path = 'file/FileDownload/';
+                FileHelper::createDirectory($path, $mode = 0775, $recursive = true);
+                $pathFile = '';
+                if (isset($file)) {
+                    $rand = rand();
+                    $file->saveAs($path . $rand . '_file' . '.' . $file->extension);
+                    $pathFile = $path . $rand . '_file' . '.' . $file->extension;
+                    $model->file = $pathFile;
+                }
+            } else {
+                $model->file = $modelx->file;
+            }
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', "File Download Berhasil Diubah");
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->session->setFlash('danger', "File Download Gagal Diubah");
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('update', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
