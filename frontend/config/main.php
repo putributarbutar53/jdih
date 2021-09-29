@@ -10,13 +10,39 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'as access' => [
+        'class' => '\hscstudio\mimin\components\AccessControl',
+        'allowActions' => [
+            // add wildcard allowed action here!
+            'site/*',
+            'backend/site/*',
+            'debug/*',
+            'mimin/*', // only in dev mode
+            'master-jabatan/*',
+            'master-kategori-artikel/*',
+            'master-kategori/*',
+            'master-profil/*',
+            'master-status-publish/*',
+            'master-status/*',
+            'master-struktur/*',
+            'produk-hukum/*',
+            'rancangan-ph/*',
+        ],
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'modules' => [
         'gridview' => [
             'class' => '\kartik\grid\Module'
         ],
+        'mimin' => [
+            'class' => '\hscstudio\mimin\Module',
+        ],
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', // only support DbManager
+            'db' => 'db'
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

@@ -24,7 +24,8 @@
         "daxslab/yii2-thumbnailer": "*",
         "kartik-v/yii2-checkbox-x": "dev-master",
         "kartik-v/yii2-grid": "dev-master",
-        "kartik-v/yii2-detail-view": "dev-master"
+        "kartik-v/yii2-detail-view": "dev-master",
+        "hscstudio/yii2-mimin": "~1.1.5"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

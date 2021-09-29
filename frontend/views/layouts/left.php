@@ -1,4 +1,7 @@
 <?php
+
+use hscstudio\mimin\components\Mimin;
+
 $username = Yii::$app->user->identity->username;
 ?>
 
@@ -39,6 +42,7 @@ $username = Yii::$app->user->identity->username;
                     'label' => 'Produk Hukum',
                     'icon' => 'share',
                     'url' => '#',
+                    'visible' => Mimin::checkRoute('/backend/produk-hukum/*', true),
                     'items' => [
                             ['label' => 'Produk Hukum', 'icon' => 'file-code-o', 'url' => ['/backend/produk-hukum/index'],],
                             ['label' => 'Kategori', 'icon' => 'dashboard', 'url' => ['/backend/master-kategori/index'],],
@@ -48,6 +52,7 @@ $username = Yii::$app->user->identity->username;
                     'label' => 'Rancangan Produk Hukum',
                     'icon' => 'share',
                     'url' => '#',
+                    'visible' => Mimin::checkRoute('/backend/rancangan-ph/*', true),
                     'items' => [
                             ['label' => 'Rancangan Produk Hukum', 'icon' => 'file-code-o', 'url' => ['/backend/rancangan-ph/index'],],
                             ['label' => 'Kategori', 'icon' => 'dashboard', 'url' => ['/backend/master-kategori/index'],],
@@ -57,6 +62,7 @@ $username = Yii::$app->user->identity->username;
                     'label' => 'Artikel',
                     'icon' => 'share',
                     'url' => '#',
+                    'visible' => Mimin::checkRoute('/backend/artikel/*', true),
                     'items' => [
                             ['label' => 'Artikel', 'icon' => 'file-code-o', 'url' => ['/backend/artikel/index'],],
                             ['label' => 'Kategori', 'icon' => 'dashboard', 'url' => ['/backend/master-kategori-artikel/index'],],
@@ -66,6 +72,7 @@ $username = Yii::$app->user->identity->username;
                     'label' => 'Profil',
                     'icon' => 'share',
                     'url' => '#',
+                    'visible' => Mimin::checkRoute('/backend/master-profil/*', true),
                     'items' => [
                         ['label' => 'Profil', 'icon' => 'file-code-o', 'url' => ['/backend/master-profil/index'],],
                             ['label' => 'Struktur', 'icon' => 'dashboard', 'url' => ['/backend/master-struktur/index'],],
@@ -73,37 +80,28 @@ $username = Yii::$app->user->identity->username;
                             ['label' => 'File Download', 'icon' => 'dashboard', 'url' => ['/backend/file-download/index'],],
                     ],
                 ],
-                ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    [
-                        'label' => 'Some tools',
-                        'icon' => 'share',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
+                [
+                    'label' => 'Super Admin',
+                    'icon' => 'share',
+                    'url' => '#',
+                    'visible' => Mimin::checkRoute('/mimin/*', true),
+                    'items' => [
+                            ['label' => 'Route', 'icon' => 'file-code-o', 'url' => ['/mimin/route']],
+                            ['label' => 'Role', 'icon' => 'file-code-o', 'url' => ['/mimin/role']],
+                            ['label' => 'User', 'icon' => 'file-code-o', 'url' => ['/mimin/user']],
                     ],
                 ],
+                    [
+                    'label' => 'Menu Yii2',
+                    'icon' => 'share',
+                    'url' => '#',
+                    'visible' => Mimin::checkRoute('/mimin/*', true),
+                    'items' => [
+                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                            ['label' => 'Debug', 'icon' => 'file-code-o', 'url' => ['/debug']],
+                    ],
+                ],
+            ],
             ]
         ) ?>
 
