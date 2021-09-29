@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c0da0c816379fac0853202a5605a504",
+    "content-hash": "659ea5b5177366abb2595bbbd59d41eb",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -624,6 +624,51 @@
                 "source": "https://github.com/FortAwesome/Font-Awesome/tree/v4.7.0"
             },
             "time": "2016-10-24T15:52:54+00:00"
+        },
+        {
+            "name": "hscstudio/yii2-mimin",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hscstudio/yii2-mimin.git",
+                "reference": "c5269b3aa2dc5be706510d80af60fd4e5d9f89ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hscstudio/yii2-mimin/zipball/c5269b3aa2dc5be706510d80af60fd4e5d9f89ca",
+                "reference": "c5269b3aa2dc5be706510d80af60fd4e5d9f89ca",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-widgets": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "hscstudio\\mimin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hafid Mukhlasin",
+                    "email": "hafidmukhlasin@gmail.com"
+                }
+            ],
+            "description": "Simple RBAC Manager",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/hscstudio/yii2-mimin/issues",
+                "source": "https://github.com/hscstudio/yii2-mimin/tree/v1.1.5"
+            },
+            "time": "2019-03-20T07:02:36+00:00"
         },
         {
             "name": "imagine/imagine",
