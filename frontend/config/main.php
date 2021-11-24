@@ -26,6 +26,7 @@ return [
             'master-status/*',
             'master-struktur/*',
             'produk-hukum/*',
+            'artikel/*',
             'rancangan-ph/*',
         ],
     ],
