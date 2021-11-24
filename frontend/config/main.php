@@ -28,6 +28,7 @@ return [
             'produk-hukum/*',
             'artikel/*',
             'rancangan-ph/*',
+            'file-download/*'
         ],
     ],
     'controllerNamespace' => 'frontend\controllers',
