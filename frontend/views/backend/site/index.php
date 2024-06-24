@@ -1,7 +1,9 @@
 <?php
-use yii\helpers\Url;
 
-/* @var $this yii\web\View */
+use yii\helpers\Url;
+use yii\web\View;
+
+/* @var $this View */
 
 $this->title = 'JDIH Kabupaten Toba';
 ?>

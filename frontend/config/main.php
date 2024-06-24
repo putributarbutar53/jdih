@@ -28,7 +28,8 @@ return [
             'produk-hukum/*',
             'artikel/*',
             'rancangan-ph/*',
-            'file-download/*'
+            'file-download/*',
+
         ],
     ],
     'controllerNamespace' => 'frontend\controllers',
@@ -70,7 +71,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-    /*
+        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
